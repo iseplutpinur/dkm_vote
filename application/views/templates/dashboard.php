@@ -7,7 +7,9 @@
 	<title><?= $title ?> | <?= $app_name ?></title>
 
 	<!-- icon -->
-	<!-- 	<link rel="apple-touch-icon" sizes="57x57" href="<?= base_url() ?>assets/favicon/apple-icon-57x57.png">
+
+	<link rel="icon" href="<?= base_url() ?>assets/favicon/favicon.ico">
+	<link rel="apple-touch-icon" sizes="57x57" href="<?= base_url() ?>assets/favicon/apple-icon-57x57.png">
 	<link rel="apple-touch-icon" sizes="60x60" href="<?= base_url() ?>assets/favicon/apple-icon-60x60.png">
 	<link rel="apple-touch-icon" sizes="72x72" href="<?= base_url() ?>assets/favicon/apple-icon-72x72.png">
 	<link rel="apple-touch-icon" sizes="76x76" href="<?= base_url() ?>assets/favicon/apple-icon-76x76.png">
@@ -19,7 +21,7 @@
 	<link rel="icon" type="image/png" sizes="192x192" href="<?= base_url() ?>assets/favicon/android-icon-192x192.png">
 	<link rel="icon" type="image/png" sizes="32x32" href="<?= base_url() ?>assets/favicon/favicon-32x32.png">
 	<link rel="icon" type="image/png" sizes="96x96" href="<?= base_url() ?>assets/favicon/favicon-96x96.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="<?= base_url() ?>assets/favicon/favicon-16x16.png"> -->
+	<link rel="icon" type="image/png" sizes="16x16" href="<?= base_url() ?>assets/favicon/favicon-16x16.png">
 	<link rel="manifest" href="<?= base_url() ?>assets/favicon/manifest.json">
 	<meta name="msapplication-TileColor" content="#fff">
 	<meta name="theme-color" content="#343a40">

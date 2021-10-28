@@ -13,6 +13,8 @@
   <!-- icheck bootstrap -->
   <link rel="stylesheet" href="<?= base_url('assets/') ?>plugins/icheck-bootstrap/icheck-bootstrap.min.css">
   <!-- Theme style -->
+
+  <link rel="icon" href="<?= base_url() ?>assets/favicon/favicon.ico">
   <link rel="stylesheet" href="<?= base_url('assets/template/') ?>dist/css/adminlte.min.css">
   <link rel="apple-touch-icon" sizes="57x57" href="<?= base_url() ?>assets/favicon/apple-icon-57x57.png">
   <link rel="apple-touch-icon" sizes="60x60" href="<?= base_url() ?>assets/favicon/apple-icon-60x60.png">
