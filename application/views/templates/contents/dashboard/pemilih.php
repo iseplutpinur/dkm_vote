@@ -9,6 +9,9 @@
     <div class="col-lg-4 col-md-6">
       <div class="card db-hover" style="width: 100%; border-radius:16px; <?= ($calon->pilih != 0) ? 'border:2px solid red' : '' ?>">
         <img class="card-img-top" src="<?= base_url() ?>files/calon/<?= $calon->photo ?>" alt="<?= $calon->nama ?>" style="border-radius: 16px 16px 0 0;">
+        <?php if ($calon->pilih != 0) : ?>
+          <span class="badge bg-warning text-dark position-absolute card-badge mt-3 ml-3"><?= $calon->dipilih_waktu ?></span>
+        <?php endif ?>
         <div class="card-body">
           <h4 class="text-center"><?= $calon->nama ?> ( <?= $calon->no_urut ?> )</h4>
           <div class="d-flex justify-content-between align-items-center">

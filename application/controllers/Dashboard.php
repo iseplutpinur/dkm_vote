@@ -24,6 +24,12 @@ class Dashboard extends Render_Controller
 			$this->data['totalPeristiwa'] = $this->model->getJumlahPeristiwa();
 			$this->data['totalPatner'] = $this->model->getJumlahPatner();
 			$this->data['totalPengguna'] = $this->model->getJumlahPengguna();
+
+			// jumlah pemilih
+			// jumlah calon
+			// jumlah sudah pilih
+			// jumlah belum pilih
+
 		} else {
 			$this->title = 'List Calon Ketua';
 			$this->content = 'dashboard/pemilih';

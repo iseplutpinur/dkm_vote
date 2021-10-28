@@ -265,8 +265,10 @@ class DashboardModel extends Render_Model
     {
         $result = $this->db->select("a.*,
                 (select count(*) from kpu_pemilihan as z where z.id_pemilih = '$id' and z.id_calon = a.id) as pilih,
+                (select created_at from kpu_pemilihan as z where z.id_pemilih = '$id' and z.id_calon = a.id) as dipilih_waktu,
                 (select count(*) from kpu_pemilihan as z where z.id_pemilih = '$id') as status_pilih")
-            ->from('kpu_calon a')->where('status', 1)->get()->result();
+            ->from('kpu_calon a')
+            ->where('status', 1)->get()->result();
         return $result;
     }
 
