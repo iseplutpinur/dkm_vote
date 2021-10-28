@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Oct 29, 2021 at 12:26 AM
+-- Generation Time: Oct 29, 2021 at 12:57 AM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 7.4.21
 
@@ -97,13 +97,6 @@ CREATE TABLE `kpu_pemilihan` (
   `deleted_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `kpu_pemilihan`
---
-
-INSERT INTO `kpu_pemilihan` (`id`, `id_pemilih`, `id_calon`, `status`, `created_by`, `updated_by`, `deleted_by`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(2, 5, 4, 1, NULL, NULL, NULL, '2021-10-29 05:20:46', NULL, NULL);
-
 -- --------------------------------------------------------
 
 --
@@ -155,10 +148,10 @@ INSERT INTO `menu` (`menu_id`, `menu_menu_id`, `menu_nama`, `menu_keterangan`, `
 (5, 2, 'Level', '-', 4, 'far fa-circle', 'pengaturan/level', 'Aktif', '2020-06-18 02:40:07'),
 (6, 2, 'Pengguna', '-', 2, 'far fa-circle', 'pengaturan/pengguna', 'Aktif', '2020-06-18 02:40:07'),
 (7, 2, 'Ganti Password', 'Ganti password', 3, 'fa fa-key', 'pengaturan/password', 'Aktif', '2021-06-28 08:34:14'),
-(104, 2, 'Users', '-', 1, 'fas fa-users', 'pengaturan/profile', 'Aktif', '2021-09-23 05:35:13'),
 (110, 0, 'Calon Ketua', 'Calon Ketua Umum\n', 1, 'fas fa-user', 'admin/CalonKetua', 'Aktif', '2021-10-28 17:04:18'),
 (111, 0, 'Pemilih', '-', 2, ' fas fa-tasks', 'admin/pemilih', 'Aktif', '2021-10-28 18:27:32'),
-(112, 0, 'Perhitungan Suara', '-', 3, 'far fa-comment', 'admin/Count', 'Aktif', '2021-10-28 19:46:03');
+(112, 0, 'Perhitungan Suara', '-', 3, 'far fa-comment', 'admin/Count', 'Aktif', '2021-10-28 19:46:03'),
+(113, 2, 'Reset', '-', 1, 'far fa-circle', 'pengaturan/reset', 'Aktif', '2021-10-28 22:41:40');
 
 -- --------------------------------------------------------
 
@@ -186,7 +179,8 @@ INSERT INTO `role_aplikasi` (`rola_id`, `rola_menu_id`, `rola_lev_id`, `created_
 (235, 7, 1, '2021-10-28 22:25:00'),
 (236, 5, 1, '2021-10-28 22:25:01'),
 (238, 4, 1, '2021-10-28 22:25:03'),
-(239, 2, 1, '2021-10-28 22:25:10');
+(239, 2, 1, '2021-10-28 22:25:10'),
+(240, 113, 1, '2021-10-28 22:44:39');
 
 -- --------------------------------------------------------
 
@@ -321,7 +315,7 @@ ALTER TABLE `kpu_pemilih`
 -- AUTO_INCREMENT for table `kpu_pemilihan`
 --
 ALTER TABLE `kpu_pemilihan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `level`
@@ -333,13 +327,13 @@ ALTER TABLE `level`
 -- AUTO_INCREMENT for table `menu`
 --
 ALTER TABLE `menu`
-  MODIFY `menu_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=113;
+  MODIFY `menu_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=114;
 
 --
 -- AUTO_INCREMENT for table `role_aplikasi`
 --
 ALTER TABLE `role_aplikasi`
-  MODIFY `rola_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=240;
+  MODIFY `rola_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=241;
 
 --
 -- AUTO_INCREMENT for table `role_users`

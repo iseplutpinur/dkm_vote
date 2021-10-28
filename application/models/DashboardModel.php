@@ -279,4 +279,22 @@ class DashboardModel extends Render_Model
             'id_calon' => $id_calon,
         ]);
     }
+
+    public function jumlahCalonKetua(): int
+    {
+        $get = $this->db->select('count(*) as total')->from('kpu_calon')->where('status', 1)->get()->row_array();
+        return $get['total'] == null ? 0 : $get['total'];
+    }
+
+    public function jumlahPemilih(): int
+    {
+        $get = $this->db->select('count(*) as total')->from('kpu_pemilih')->where('status', 1)->get()->row_array();
+        return $get['total'] == null ? 0 : $get['total'];
+    }
+
+    public function jumlahsudahPilih(): int
+    {
+        $get = $this->db->select('count(*) as total')->from('kpu_pemilihan')->where('status', 1)->get()->row_array();
+        return $get['total'] == null ? 0 : $get['total'];
+    }
 }

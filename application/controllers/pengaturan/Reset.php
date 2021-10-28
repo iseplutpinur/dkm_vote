@@ -1,17 +1,15 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class HakAkses extends Render_Controller
+class Reset extends Render_Controller
 {
-
-
   public function index()
   {
     // Page Settings
-    $this->title           = 'Pengaturan Hak Akses';
-    $this->content           = 'pengaturan/hakakses';
-    $this->navigation         = ['Pengaturan', 'Hak Akses'];
-    $this->plugins           = ['datatables', 'datatables-btn'];
+    $this->title           = 'Reset';
+    $this->title_show           = false;
+    $this->content           = 'pengaturan/reset';
+    $this->navigation         = ['Pengaturan', 'Reset'];
 
     // Breadcrumb setting
     $this->breadcrumb_1       = 'Dashboard';
@@ -21,10 +19,10 @@ class HakAkses extends Render_Controller
     $this->breadcrumb_3       = 'Hak Akses';
     $this->breadcrumb_3_url     = '#';
 
-    // Send data to view
-    $this->data['records']       = $this->hakAkses->getAllData();
-    $this->data['level']       = $this->hakAkses->getDataLevel();
-    $this->data['parent']       = $this->hakAkses->getDataParent();
+    if ($this->input->post('reset') != null) {
+      $this->db->query('TRUNCATE kpu_pemilihan');
+      $this->data['success'] = true;
+    }
 
     $this->render();
   }

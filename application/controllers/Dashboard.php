@@ -18,18 +18,10 @@ class Dashboard extends Render_Controller
 
 		if ($this->level == 'Super Admin') {
 			$this->content = 'dashboard/admin';
-			$this->data['totalCompany'] = $this->model->getJumlahCompany();
-			$this->data['totalResiko'] = $this->model->getJumlahResiko();
-			$this->data['totalMembership'] = $this->model->getJumlahMembership();
-			$this->data['totalPeristiwa'] = $this->model->getJumlahPeristiwa();
-			$this->data['totalPatner'] = $this->model->getJumlahPatner();
-			$this->data['totalPengguna'] = $this->model->getJumlahPengguna();
-
-			// jumlah pemilih
-			// jumlah calon
-			// jumlah sudah pilih
-			// jumlah belum pilih
-
+			$this->data['calonKetua'] = $this->model->jumlahCalonKetua();
+			$this->data['pemilih'] = $this->model->jumlahPemilih();
+			$this->data['sudahPilih'] = $this->model->jumlahsudahPilih();
+			$this->data['belumPilih'] =	$this->data['pemilih'] - 	$this->data['sudahPilih'];
 		} else {
 			$this->title = 'List Calon Ketua';
 			$this->content = 'dashboard/pemilih';
