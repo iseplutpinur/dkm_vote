@@ -2,12 +2,12 @@ $(function () {
   $('#filter-partner').select2();
   function dynamic_v2(datas = {
     partner: null,
-}) {
+  }) {
     let filter = null;
     if (datas.partner != null) {
-        filter = {
-            partner: datas.partner,
-        }
+      filter = {
+        partner: datas.partner,
+      }
     }
     const table_html = $('#dt_basic_v2');
     table_html.dataTable().fnDestroy()
@@ -121,9 +121,9 @@ $(function () {
     a.href = link + `?filter-partner=${partner}`;
     b.href = link_pdf + `?filter-partner=${partner}`;
     dynamic_v2({
-        partner: partner,
+      partner: partner,
     });
-});
+  });
   $("#btn-tambah").click(() => {
     $("#myModalLabel").text("Tambah List Profile");
     $('#id').val("");
@@ -135,34 +135,34 @@ $(function () {
     $('#remark').val("");
   });
 
-    // Import
-    $("#importExcel").submit(function (ev) {
-      ev.preventDefault();
-      const form = new FormData(this);
-      $.LoadingOverlay("show");
-      $.ajax({
-          method: 'post',
-          url: '<?= base_url() ?>pengaturan/profile/import_excel',
-          data: form,
-          cache: false,
-          contentType: false,
-          processData: false,
-      }).done((data) => {
-          Toast.fire({
-              icon: 'success',
-              title: 'Data berhasil diimport'
-          })
-          window.location.replace("<?= base_url() ?>pengaturan/profile");
-          dynamic();
-      }).fail(($xhr) => {
-          Toast.fire({
-              icon: 'error',
-              title: 'Data gagal diimport'
-          })
-      }).always(() => {
-          $.LoadingOverlay("hide");
-          $('#import').modal('toggle')
+  // Import
+  $("#importExcel").submit(function (ev) {
+    ev.preventDefault();
+    const form = new FormData(this);
+    $.LoadingOverlay("show");
+    $.ajax({
+      method: 'post',
+      url: '<?= base_url() ?>pengaturan/profile/import_excel',
+      data: form,
+      cache: false,
+      contentType: false,
+      processData: false,
+    }).done((data) => {
+      Toast.fire({
+        icon: 'success',
+        title: 'Data berhasil diimport'
       })
+      window.location.replace("<?= base_url() ?>pengaturan/profile");
+      dynamic();
+    }).fail(($xhr) => {
+      Toast.fire({
+        icon: 'error',
+        title: 'Data gagal diimport'
+      })
+    }).always(() => {
+      $.LoadingOverlay("hide");
+      $('#import').modal('toggle')
+    })
   });
 
   // tambah dan ubah

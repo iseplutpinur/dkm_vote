@@ -947,7 +947,6 @@ function photo_preview(datas) {
   $("#fot_preview").modal('toggle');
   img.attr('src', `<?= base_url() ?>files/profile/${data.src}`);
   img.attr('alt', data.alt);
-
 }
 
 function konfirmasiEmail(datas) {

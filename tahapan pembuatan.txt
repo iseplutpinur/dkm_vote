@@ -1,0 +1,13 @@
+calon ketua [clear]
+crud calon pemilih
+  crud biasa
+  generate token
+  generate pdf informasi token
+login calon pemilih
+live count
+reset count
+hasil pemilihan
+
+pengumuman dashbard tentang pemiliahn
+laporan laporan
+

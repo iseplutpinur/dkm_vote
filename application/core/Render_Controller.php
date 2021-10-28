@@ -30,7 +30,7 @@ class Render_Controller extends CI_Controller
 	protected $plugins 			= array();
 	private   $plugin_scripts 	= array();
 	private   $plugin_styles 	= array();
-	protected $debug = false;
+	protected $debug = true;
 
 
 	protected function preRender()
@@ -268,10 +268,10 @@ class Render_Controller extends CI_Controller
 	{
 		$config = array(
 			'protocol' => 'POP3',
-			'smtp_host' => 'mail.kap.komunitashalal.com',
+			'smtp_host' => '',
 			'smtp_port' => 995,
-			'smtp_user' => 'admin@kap.komunitashalal.com',
-			'smtp_pass' => '@Infinit2020',
+			'smtp_user' => '',
+			'smtp_pass' => '',
 			'mailtype'  => 'html',
 			'charset'   => 'iso-8859-1'
 		);
