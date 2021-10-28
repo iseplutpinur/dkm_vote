@@ -1,8 +1,8 @@
 calon ketua [clear]
 crud calon pemilih
-  crud biasa
-  generate token
-  generate pdf informasi token
+  crud biasa [clear]
+  generate token [clear]
+  generate pdf informasi token [clear]
 login calon pemilih
 live count
 reset count
@@ -10,4 +10,5 @@ hasil pemilihan
 
 pengumuman dashbard tentang pemiliahn
 laporan laporan
-
+pemilih terakhir login
+pemilih memilih (waktu)

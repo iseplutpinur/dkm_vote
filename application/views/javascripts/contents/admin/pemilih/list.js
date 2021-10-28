@@ -29,14 +29,23 @@ $(function () {
                 { "data": "npp" },
                 { "data": "token" },
                 {
-                    "data": "id", render(data, type, full, meta) {
-                        return 'dumy data';
+                    "data": "sudah_pilih", render(data, type, full, meta) {
+                        let pilih = '<span class="font-weight-bold text-success"><i class="far fa-check-circle"></i> Sudah</span>';
+                        if (data == 0) {
+                            pilih = '<span class="font-weight-bold text-danger"><i class="far fa-times-circle"></i> Belum</span>';
+                        }
+                        return pilih;
                     }
                 },
                 { "data": "status_str" },
                 {
                     "data": "id", render(data, type, full, meta) {
+                        let undangan = `<a href="<?= base_url() ?>admin/pemilih/undang_pdf/${data}" class="btn btn-info btn-xs"><i class="fa fa-file-pdf"></i> Generate Undangan</a>`;
+                        if (full.status != 1) {
+                            undangan = '';
+                        }
                         return `<div class="pull-right">
+                                    ${undangan}
 									<button class="btn btn-primary btn-xs"
                                         data-id="${data}"
                                         data-nama="${full.nama}"

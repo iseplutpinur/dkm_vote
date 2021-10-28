@@ -40,13 +40,10 @@
     <div class="card card-outline card-primary">
       <div class="card-header text-center">
         <!-- <img src="<?= base_url() ?>assets/images/logo.png" class="rounded mx-auto d-block" style="max-width: 100px;" alt="Logo SIKK"> -->
-        <span class="h5"><b>AuditAny</b><br>Audit System End to End</span>
+        <span class="h5"><b>KPU DKM</b><br>Login Sebagai Administrator</span>
       </div>
 
-      <div class="card-body pt-0">
-        <div class="text-center my-2">
-          <span class="text-capitalize mt-0 font-weight-bold">login</span>
-        </div>
+      <div class="card-body pt-3">
         <?php
         $flash = $this->session->flashdata();
         if (!empty($flash)) :
@@ -91,7 +88,7 @@
     </div>
     <!-- /.card -->
   </div>
-  <small class="form-text text-muted">&copy; 2021 Developed by <b>Soni Setiawan</b></small>
+  <small class="form-text text-muted">&copy; 2021 Developed by <b>Adjie Abdul Azis</b></small>
   <!-- /.login-box -->
 
   <!-- jQuery -->

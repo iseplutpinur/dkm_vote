@@ -43,11 +43,10 @@ class CalonKetuaModel extends Render_Model
         // pencarian
         if ($cari != null) {
             $this->db->where("(
-                a.nama_depan LIKE '%$cari%' or
-                a.nama_belakang LIKE '%$cari%' or
-                a.jenis_kelamin LIKE '%$cari%' or
-                (ifnull((SELECT jenis_membership.nama FROM membership join jenis_membership on jenis_membership.id = membership.id_jenis_membership WHERE id_profile = a.id and membership.status = 1 limit 1), '')) LIKE '%$cari%' or
-                IF(a.status = '0' , 'Tidak Aktif', IF(a.status = '1' , 'Aktif', 'Tidak Diketahui')) LIKE '%$cari%'
+                a.nama LIKE '%$cari%' or
+                a.npm LIKE '%$cari%' or
+                a.visi LIKE '%$cari%' or
+                a.misi LIKE '%$cari%'
                 )");
         }
 

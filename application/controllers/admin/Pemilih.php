@@ -94,6 +94,92 @@ class Pemilih extends Render_Controller
         $this->output_json(["data" => $result], $code);
     }
 
+    public function undang_pdf($id = null)
+    {
+        // get data
+        $data = $this->model->dataPemilih($id);
+        $header = '
+        <body style="font-family:Arial">
+        <div class="header">
+            <center>
+                <h3><span style="text-align:center; ">Undangan Pemilihan Ketua Umum DKM Ulilalbab</span></h3>
+                <p style="font-size:11px; margin-top:-10px;">AYO MEMILIH PILIH SESUAI DENGAN HATI NURANI ANDA</p></center>
+            </center>
+            <hr>
+        </div>
+        ';
+        $body = "
+        {$header}
+        <table width=\"100%\" style=\"font-weight:bold; font-size:14px;\">
+        <tr>
+            <td>NPP</td>
+            <td>:</td>
+            <td>{$data->npp}</td>
+        </tr>
+        <tr>
+            <td>Nama</td>
+            <td>:</td>
+            <td>{$data->nama}</td>
+        </tr>
+        <tr>
+            <td>Token</td>
+            <td>:</td>
+            <td>{$data->token}</td>
+        </tr>
+        <tr>
+            <td>Status Pemilihan</td>
+            <td>:</td>
+            <td>{$data->sudah_pilih}</td>
+        </tr>
+        <tr>
+            <td>Keterangan</td>
+            <td>:</td>
+            <td>{$data->keterangan}</td>
+        </tr>
+    </table>
+    </div>
+    </body>
+        ";
+
+
+        // document name
+        $doc_name = "{$data->nama} ({$data->npp})  - Undagan Pemilihan Ketua Umum";
+
+        $this->create_pdf([
+            'html' => $body,
+            'doc_name' => $doc_name,
+            'paper_size' => 'A5'
+        ]);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     public function cari()
     {
         $key = $this->input->post('q');
