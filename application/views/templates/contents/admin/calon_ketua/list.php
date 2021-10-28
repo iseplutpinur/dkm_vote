@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card card-primary card-outline">
   <div class="card-header">
     <div class="d-flex justify-content-between w-100">
       <h3 class="card-title">List Calon Ketua</h3>

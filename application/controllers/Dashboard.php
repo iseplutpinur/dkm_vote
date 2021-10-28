@@ -16,15 +16,32 @@ class Dashboard extends Render_Controller
 		$this->breadcrumb_1 = 'Dashboard';
 		$this->breadcrumb_1_url = '#';
 
-		$this->content = 'dashboard/admin';
-		$this->data['totalCompany'] = $this->model->getJumlahCompany();
-		$this->data['totalResiko'] = $this->model->getJumlahResiko();
-		$this->data['totalMembership'] = $this->model->getJumlahMembership();
-		$this->data['totalPeristiwa'] = $this->model->getJumlahPeristiwa();
-		$this->data['totalPatner'] = $this->model->getJumlahPatner();
-		$this->data['totalPengguna'] = $this->model->getJumlahPengguna();
+		if ($this->level == 'Super Admin') {
+			$this->content = 'dashboard/admin';
+			$this->data['totalCompany'] = $this->model->getJumlahCompany();
+			$this->data['totalResiko'] = $this->model->getJumlahResiko();
+			$this->data['totalMembership'] = $this->model->getJumlahMembership();
+			$this->data['totalPeristiwa'] = $this->model->getJumlahPeristiwa();
+			$this->data['totalPatner'] = $this->model->getJumlahPatner();
+			$this->data['totalPengguna'] = $this->model->getJumlahPengguna();
+		} else {
+			$this->title = 'List Calon Ketua';
+			$this->content = 'dashboard/pemilih';
+			$this->data['calons'] = $this->model->getCalon($this->id);
+			// var_dump($this->data['calons']);
+			// die;
+		}
+
 		// Send data to view
 		$this->render();
+	}
+
+	public function pilih()
+	{
+		$id_calon = $this->input->post('id');
+		$id_pemilih = $this->id;
+		$result = $this->model->pilihSimpan($id_pemilih, $id_calon);
+		$this->output_json($result, 200);
 	}
 
 	function __construct()
@@ -34,7 +51,8 @@ class Dashboard extends Render_Controller
 		$this->default_template = 'templates/dashboard';
 		$this->load->library('plugin');
 		$this->load->helper('url');
-
+		$this->level = $this->session->userdata('data')['level'];
+		$this->id = $this->session->userdata('data')['id'];
 		// Cek session
 
 		// model

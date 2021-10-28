@@ -260,4 +260,21 @@ class DashboardModel extends Render_Model
         $return = ['data' => $return, 'length' => $length];
         return $return;
     }
+
+    public function getCalon($id)
+    {
+        $result = $this->db->select("a.*,
+                (select count(*) from kpu_pemilihan as z where z.id_pemilih = '$id' and z.id_calon = a.id) as pilih,
+                (select count(*) from kpu_pemilihan as z where z.id_pemilih = '$id') as status_pilih")
+            ->from('kpu_calon a')->where('status', 1)->get()->result();
+        return $result;
+    }
+
+    public function pilihSimpan($id_pemilih, $id_calon)
+    {
+        return $this->db->insert('kpu_pemilihan', [
+            'id_pemilih' => $id_pemilih,
+            'id_calon' => $id_calon,
+        ]);
+    }
 }
