@@ -7,11 +7,37 @@ class Login extends Render_Controller
 	public function index()
 	{
 		$this->sesion->cek_login();
-		$this->content = 'login';
+		$this->content = 'login_token';
 		$this->render();
 	}
 
+	public function login_token()
+	{
+		$token = $this->input->post('token');
+		$getPemilih = $this->db->select('*')->from('kpu_pemilih')->where('token', $token)->get()->row();
+		if ($getPemilih == null) {
+			$this->output_json(['status' => 0]);
+			return;
+		}
 
+		$session = array(
+			'status' => true,
+			'data'	 => array(
+				'id' => $getPemilih->id,
+				'nama' => $getPemilih->nama,
+				'email' => '',
+				'level' => 'Pemilih',
+				'level_id' => '127',
+			)
+		);
+
+		$this->session->set_userdata($session);
+
+		$this->output_json(['status' => 1]);
+	}
+
+
+	// login admin
 	public function doLogin()
 	{
 		$username 	= $this->input->post('email');
@@ -98,11 +124,12 @@ class Login extends Render_Controller
 			redirect(base_url('login'), 'refresh');
 		}
 	}
+
 	function __construct()
 	{
 		parent::__construct();
 		$this->load->model('loginModel', 'login');
-		$this->default_template = 'templates/login';
+		$this->default_template = 'templates/login_token';
 		$this->load->library('plugin');
 		$this->load->helper('url');
 	}

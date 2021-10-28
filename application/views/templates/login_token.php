@@ -40,7 +40,7 @@
     <div class="card card-outline card-primary">
       <div class="card-header text-center">
         <!-- <img src="<?= base_url() ?>assets/images/logo.png" class="rounded mx-auto d-block" style="max-width: 100px;" alt="Logo SIKK"> -->
-        <span class="h5"><b>KPU DKM</b><br>Login Sebagai Administrator</span>
+        <span class="h5"><b>AYO MEMILIH!</b><br>PILIH SESUAI DENGAN HATI NURANI ANDA</span>
       </div>
 
       <div class="card-body pt-3">
@@ -61,18 +61,7 @@
         <?php endif ?>
         <form action="" method="post" autocomplete="off" id="form-login">
           <div class="form-group">
-            <input type="text" name="email" autocomplete="off" class="form-control" id="email" placeholder="Email/Username">
-          </div>
-          <div class="form-group">
-            <input type="password" name="password" autocomplete="off" class="form-control" id="password" placeholder="Password">
-          </div>
-          <div class="d-flex justify-content-between">
-            <div class="icheck-primary">
-              <input type="checkbox" id="password-visibility">
-              <label for="password-visibility">
-                Lihat password
-              </label>
-            </div>
+            <input type="text" name="token" autocomplete="off" class="form-control" id="token" placeholder="Token">
           </div>
         </form>
 
@@ -80,7 +69,6 @@
           <button type="submit" form="form-login" class="btn btn-block btn-primary">
             <i class="fas fa-sign-in-alt"></i> Masuk
           </button>
-          <a class="btn text-center mt-1" href="<?= base_url() ?>lupaPassword">Lupa Password?</a>
         </div>
         <!-- /.social-auth-links -->
       </div>
