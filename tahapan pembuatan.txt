@@ -3,7 +3,7 @@ crud calon pemilih
   crud biasa [clear]
   generate token [clear]
   generate pdf informasi token [clear]
-login calon pemilih
+login calon pemilih [clear]
 live count
 reset count
 hasil pemilihan

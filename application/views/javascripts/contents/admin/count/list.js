@@ -14,7 +14,7 @@ $(function () {
         table_html.dataTable().fnDestroy()
         const new_table = table_html.DataTable({
             "ajax": {
-                "url": "<?= base_url()?>admin/pemilih/ajax_data/",
+                "url": "<?= base_url()?>admin/count/ajax_data/",
                 "data": datas,
                 "type": 'POST'
             },
@@ -25,50 +25,16 @@ $(function () {
             "autoWidth": false,
             "columns": [
                 { "data": null },
+                { "data": "no_urut" },
                 { "data": "nama" },
-                { "data": "npp" },
-                { "data": "token" },
-                {
-                    "data": "id_pemilihan", render(data, type, full, meta) {
-                        let pilih = `<span class="font-weight-bold text-success"><i class="far fa-check-circle"></i> Sudah</span> (${full.pilih_waktu})`;
-                        if (data == null) {
-                            pilih = '<span class="font-weight-bold text-danger"><i class="far fa-times-circle"></i> Belum</span>';
-                        }
-                        return pilih;
-                    }
-                },
-                { "data": "status_str" },
-                {
-                    "data": "id", render(data, type, full, meta) {
-                        let undangan = `<a href="<?= base_url() ?>admin/pemilih/undang_pdf/${data}" class="btn btn-info btn-xs"><i class="fa fa-file-pdf"></i> Generate Undangan</a>`;
-                        if (full.status != 1) {
-                            undangan = '';
-                        }
-                        return `<div class="pull-right">
-                                    ${undangan}
-									<button class="btn btn-primary btn-xs"
-                                        data-id="${data}"
-                                        data-nama="${full.nama}"
-                                        data-npp="${full.npp}"
-                                        data-keterangan="${full.keterangan}"
-                                        data-status="${full.status}"
-                                        data-toggle="modal" data-target="#tambahModal"
-                                    onclick="Ubah(this)">
-										<i class="fa fa-edit"></i> Ubah
-									</button>
-									<button class="btn btn-danger btn-xs" onclick="Hapus(${data})">
-										<i class="fa fa-trash"></i> Hapus
-									</button>
-								</div>`
-                    }, className: "nowrap"
-                }
+                { "data": "jumlah_suara" },
             ],
             order: [
                 [1, 'asc']
             ],
             columnDefs: [{
                 orderable: false,
-                targets: [0, 6]
+                targets: [0]
             }],
         });
         new_table.on('draw.dt', function () {
@@ -98,7 +64,7 @@ $(function () {
         $.LoadingOverlay("show");
         $.ajax({
             method: 'post',
-            url: '<?= base_url() ?>admin/pemilih/' + ($("#id").val() == "" ? 'insert' : 'update'),
+            url: '<?= base_url() ?>admin/count/' + ($("#id").val() == "" ? 'insert' : 'update'),
             data: form,
             cache: false,
             contentType: false,
@@ -126,7 +92,7 @@ $(function () {
         $.LoadingOverlay("show");
         $.ajax({
             method: 'post',
-            url: '<?= base_url() ?>admin/pemilih/delete',
+            url: '<?= base_url() ?>admin/count/delete',
             data: {
                 id: id
             }

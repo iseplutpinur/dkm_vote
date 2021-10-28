@@ -8,10 +8,11 @@ class CountModel extends Render_Model
         $level = $this->config->item('level_mentor');
         // select tabel
         $this->db->select("a.*,
-        IF(a.status = '0' , 'Tidak Aktif', IF(a.status = '1' , 'Aktif', 'Tidak Diketahui')) as status_str,
-        (select count(*) from kpu_pemilihan as z where a.id = id_pemilih) as sudah_pilih");
-        $this->db->from("kpu_pemilih a");
+        (select count(*) from kpu_pemilihan as z where z.id_calon = a.id) as jumlah_suara");
+        $this->db->from("kpu_calon a");
         $this->db->where('a.status <>', 3);
+        $this->db->where('a.status <>', 0);
+        $this->db->order_by('jumlah_suara', 'desc');
 
         // order by
         if ($order['order'] != null) {
@@ -59,6 +60,38 @@ class CountModel extends Render_Model
         $result = $this->db->get();
         return $result;
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     public function insert($user_id, $nama, $npp, $keterangan,  $status)
     {

@@ -9,8 +9,9 @@ class PemilihModel extends Render_Model
         // select tabel
         $this->db->select("a.*,
         IF(a.status = '0' , 'Tidak Aktif', IF(a.status = '1' , 'Aktif', 'Tidak Diketahui')) as status_str,
-        (select count(*) from kpu_pemilihan as z where a.id = id_pemilih) as sudah_pilih");
+        b.id as id_pemilihan, b.created_at as pilih_waktu");
         $this->db->from("kpu_pemilih a");
+        $this->db->join("kpu_pemilihan b", 'a.id = b.id_pemilih', 'left');
         $this->db->where('a.status <>', 3);
 
         // order by
@@ -162,9 +163,10 @@ class PemilihModel extends Render_Model
     {
         $this->db->select("a.*,
         IF(a.status = '0' , 'Tidak Aktif', IF(a.status = '1' , 'Aktif', 'Tidak Diketahui')) as status_str,
-        IF((select count(*) from kpu_pemilihan as z where a.id = id_pemilih) > 0, 'Sudah Pilih', 'Belum Pilih') as sudah_pilih");
+        IF(((b.id) is null), 'Belum Pilih', concat('Sudah Pilih (', b.created_at ,')')) as sudah_pilih");
         $this->db->from("kpu_pemilih a");
         $this->db->where('a.id', $id);
+        $this->db->join("kpu_pemilihan b", 'a.id = b.id_pemilih', 'left');
         $this->db->where('a.status <>', 3);
         return $this->db->get()->row();
     }
