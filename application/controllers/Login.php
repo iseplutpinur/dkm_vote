@@ -20,6 +20,7 @@ class Login extends Render_Controller
 			return;
 		}
 
+		$this->db->where('id', $getPemilih->id)->update('kpu_pemilih', ['last_login' => date("Y-m-d H:i:s")]);
 		$session = array(
 			'status' => true,
 			'data'	 => array(

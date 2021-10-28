@@ -5,10 +5,10 @@ crud calon pemilih
   generate pdf informasi token [clear]
 login calon pemilih [clear]
 live count [clear]
-reset count
+reset count [clear]
 hasil pemilihan
 
 pengumuman dashbard tentang pemiliahn
 laporan laporan
-pemilih terakhir login
+pemilih terakhir login [clear]
 pemilih memilih (waktu)

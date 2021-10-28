@@ -15,6 +15,7 @@
                     <th>NPP</th>
                     <th>Token</th>
                     <th>Sudah Memilih</th>
+                    <th>Terakhir Login</th>
                     <th>Status</th>
                     <th>Aksi</th>
                 </tr>

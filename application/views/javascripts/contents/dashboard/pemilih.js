@@ -24,6 +24,14 @@ $("#fmain").submit(function (ev) {
     contentType: false,
     processData: false,
   }).done((data) => {
+    if (!data) {
+
+      Toast.fire({
+        icon: 'error',
+        title: 'Pemungutan suara sudah ditutup/dikunci'
+      })
+      return;
+    }
     Toast.fire({
       icon: 'success',
       title: 'Data berhasil disimpan'

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Oct 29, 2021 at 12:57 AM
+-- Generation Time: Oct 29, 2021 at 01:44 AM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 7.4.21
 
@@ -51,6 +51,24 @@ INSERT INTO `kpu_calon` (`id`, `npm`, `nama`, `photo`, `no_urut`, `visi`, `misi`
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `kpu_kunci`
+--
+
+CREATE TABLE `kpu_kunci` (
+  `id` int(11) NOT NULL,
+  `nilai` int(11) NOT NULL COMMENT '0 dibuka | 1 Ditutup'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `kpu_kunci`
+--
+
+INSERT INTO `kpu_kunci` (`id`, `nilai`) VALUES
+(1, 0);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `kpu_pemilih`
 --
 
@@ -61,6 +79,7 @@ CREATE TABLE `kpu_pemilih` (
   `token` varchar(11) DEFAULT NULL,
   `keterangan` text NOT NULL,
   `status` int(11) NOT NULL DEFAULT 0 COMMENT '0 tidak aktif | 1 aktif',
+  `last_login` datetime DEFAULT NULL,
   `created_by` int(11) DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `deleted_by` int(11) DEFAULT NULL,
@@ -73,10 +92,10 @@ CREATE TABLE `kpu_pemilih` (
 -- Dumping data for table `kpu_pemilih`
 --
 
-INSERT INTO `kpu_pemilih` (`id`, `nama`, `npp`, `token`, `keterangan`, `status`, `created_by`, `updated_by`, `deleted_by`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(3, 'Isep Lutpi Nurs', 'UA202110s', 'CPYZMF4', '', 1, 1, 1, NULL, '2021-10-29 01:59:38', '2021-10-29 02:00:24', NULL),
-(4, 'Pemilih dua', 'UA2021101', 'UZ8D0WQ', 'Pemilih dua', 1, 1, NULL, NULL, '2021-10-29 03:01:51', NULL, NULL),
-(5, 'Pemilih Tiga', 'UA202110', 'BZXOL8I', 'adfasdfsdaf', 1, 1, NULL, NULL, '2021-10-29 03:02:00', NULL, NULL);
+INSERT INTO `kpu_pemilih` (`id`, `nama`, `npp`, `token`, `keterangan`, `status`, `last_login`, `created_by`, `updated_by`, `deleted_by`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(3, 'Isep Lutpi Nurs', 'UA202110s', 'CPYZMF4', '', 1, '2021-10-29 06:18:39', 1, 1, NULL, '2021-10-29 01:59:38', '2021-10-29 06:18:39', NULL),
+(4, 'Pemilih dua', 'UA2021101', 'UZ8D0WQ', 'Pemilih dua', 1, '2021-10-29 06:20:57', 1, NULL, NULL, '2021-10-29 03:01:51', '2021-10-29 06:20:57', NULL),
+(5, 'Pemilih Tiga', 'UA202110', 'BZXOL8I', 'adfasdfsdaf', 1, '2021-10-29 06:18:39', 1, NULL, NULL, '2021-10-29 03:02:00', '2021-10-29 06:18:39', NULL);
 
 -- --------------------------------------------------------
 
@@ -96,6 +115,13 @@ CREATE TABLE `kpu_pemilihan` (
   `updated_at` datetime DEFAULT NULL ON UPDATE current_timestamp(),
   `deleted_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `kpu_pemilihan`
+--
+
+INSERT INTO `kpu_pemilihan` (`id`, `id_pemilih`, `id_calon`, `status`, `created_by`, `updated_by`, `deleted_by`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 4, 1, 1, NULL, NULL, NULL, '2021-10-29 06:44:06', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -151,7 +177,8 @@ INSERT INTO `menu` (`menu_id`, `menu_menu_id`, `menu_nama`, `menu_keterangan`, `
 (110, 0, 'Calon Ketua', 'Calon Ketua Umum\n', 1, 'fas fa-user', 'admin/CalonKetua', 'Aktif', '2021-10-28 17:04:18'),
 (111, 0, 'Pemilih', '-', 2, ' fas fa-tasks', 'admin/pemilih', 'Aktif', '2021-10-28 18:27:32'),
 (112, 0, 'Perhitungan Suara', '-', 3, 'far fa-comment', 'admin/Count', 'Aktif', '2021-10-28 19:46:03'),
-(113, 2, 'Reset', '-', 1, 'far fa-circle', 'pengaturan/reset', 'Aktif', '2021-10-28 22:41:40');
+(113, 2, 'Reset', '-', 1, 'far fa-circle', 'pengaturan/reset', 'Aktif', '2021-10-28 22:41:40'),
+(114, 0, 'Kunci Pemungutan Suara', '1', 4, 'fas fa-key', 'admin/kunci', 'Aktif', '2021-10-28 23:24:00');
 
 -- --------------------------------------------------------
 
@@ -180,7 +207,8 @@ INSERT INTO `role_aplikasi` (`rola_id`, `rola_menu_id`, `rola_lev_id`, `created_
 (236, 5, 1, '2021-10-28 22:25:01'),
 (238, 4, 1, '2021-10-28 22:25:03'),
 (239, 2, 1, '2021-10-28 22:25:10'),
-(240, 113, 1, '2021-10-28 22:44:39');
+(240, 113, 1, '2021-10-28 22:44:39'),
+(241, 114, 1, '2021-10-28 23:24:05');
 
 -- --------------------------------------------------------
 
@@ -246,6 +274,12 @@ ALTER TABLE `kpu_calon`
   ADD KEY `deleted_by` (`deleted_by`);
 
 --
+-- Indexes for table `kpu_kunci`
+--
+ALTER TABLE `kpu_kunci`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `kpu_pemilih`
 --
 ALTER TABLE `kpu_pemilih`
@@ -306,6 +340,12 @@ ALTER TABLE `kpu_calon`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
+-- AUTO_INCREMENT for table `kpu_kunci`
+--
+ALTER TABLE `kpu_kunci`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `kpu_pemilih`
 --
 ALTER TABLE `kpu_pemilih`
@@ -315,7 +355,7 @@ ALTER TABLE `kpu_pemilih`
 -- AUTO_INCREMENT for table `kpu_pemilihan`
 --
 ALTER TABLE `kpu_pemilihan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `level`
@@ -327,13 +367,13 @@ ALTER TABLE `level`
 -- AUTO_INCREMENT for table `menu`
 --
 ALTER TABLE `menu`
-  MODIFY `menu_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=114;
+  MODIFY `menu_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=115;
 
 --
 -- AUTO_INCREMENT for table `role_aplikasi`
 --
 ALTER TABLE `role_aplikasi`
-  MODIFY `rola_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=241;
+  MODIFY `rola_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=242;
 
 --
 -- AUTO_INCREMENT for table `role_users`

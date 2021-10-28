@@ -38,8 +38,18 @@ class Dashboard extends Render_Controller
 	{
 		$id_calon = $this->input->post('id');
 		$id_pemilih = $this->id;
-		$result = $this->model->pilihSimpan($id_pemilih, $id_calon);
-		$this->output_json($result, 200);
+		$get = $this->db->select('nilai')->from('kpu_kunci')->where('id', 1)->get()->row_array();
+		if ($get == null) {
+			$this->db->insert('kpu_kunci', ['id' => 1, 'nilai' => 1]);
+			$get = ['nilai' => 1];
+		}
+		$get = $get['nilai'];
+		if ($get == 0) {
+			$result = $this->model->pilihSimpan($id_pemilih, $id_calon);
+			$this->output_json(true, 200);
+		} else {
+			$this->output_json(false, 200);
+		}
 	}
 
 	function __construct()

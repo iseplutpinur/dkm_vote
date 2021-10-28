@@ -37,6 +37,7 @@ $(function () {
                         return pilih;
                     }
                 },
+                { "data": "last_login" },
                 { "data": "status_str" },
                 {
                     "data": "id", render(data, type, full, meta) {
