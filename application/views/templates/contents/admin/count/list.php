@@ -4,6 +4,10 @@
             <div class="card-header">
                 <div class="d-flex justify-content-between w-100">
                     <h3 class="card-title">Perhitungan Suara Calon Ketua</h3>
+                    <div>
+                        <a href="<?= base_url() ?>admin/Count/export_pdf" class="btn btn-danger btn-sm"><i class="fas fa-file-pdf"></i> Export PDF</a>
+                        <a href="<?= base_url() ?>admin/Count/export_excel" class="btn btn-success btn-sm"><i class="fas fa-file-excel"></i> Export Excel</a>
+                    </div>
                 </div>
             </div>
             <!-- /.card-header -->

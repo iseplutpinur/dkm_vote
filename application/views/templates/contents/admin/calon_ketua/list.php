@@ -2,13 +2,10 @@
   <div class="card-header">
     <div class="d-flex justify-content-between w-100">
       <h3 class="card-title">List Calon Ketua</h3>
-      <div class="row">
-        <div class="col-md-12">
-          <!-- <a id="btn_export_pdf" href="<?= base_url() ?>admin/CalonKetua/export_pdf" class="btn btn-danger btn-sm"><i class="fas fa-file-pdf"></i> Export PDF</a>
-          <a id="btn_export" href="<?= base_url() ?>admin/CalonKetua/export_excel" class="btn btn-success btn-sm"><i class="fas fa-file-excel"></i> Export Excel</a>
-           -->
-          <a class="btn btn-primary btn-sm" href="<?= base_url() ?>admin/CalonKetua/tambah"><i class="fa fa-plus"></i> Tambah</a>
-        </div>
+      <div>
+        <a href="<?= base_url() ?>admin/CalonKetua/export_pdf" class="btn btn-danger btn-sm"><i class="fas fa-file-pdf"></i> Export PDF</a>
+        <a href="<?= base_url() ?>admin/CalonKetua/export_excel" class="btn btn-success btn-sm"><i class="fas fa-file-excel"></i> Export Excel</a>
+        <a class="btn btn-primary btn-sm" href="<?= base_url() ?>admin/CalonKetua/tambah"><i class="fa fa-plus"></i> Tambah</a>
       </div>
     </div>
   </div>

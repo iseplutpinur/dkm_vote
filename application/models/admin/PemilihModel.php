@@ -159,15 +159,22 @@ class PemilihModel extends Render_Model
         return $data;
     }
 
-    public function dataPemilih($id)
+    public function dataPemilih($id = null)
     {
         $this->db->select("a.*,
         IF(a.status = '0' , 'Tidak Aktif', IF(a.status = '1' , 'Aktif', 'Tidak Diketahui')) as status_str,
         IF(((b.id) is null), 'Belum Pilih', concat('Sudah Pilih (', b.created_at ,')')) as sudah_pilih");
         $this->db->from("kpu_pemilih a");
-        $this->db->where('a.id', $id);
+        if ($id != null) {
+            $this->db->where('a.id', $id);
+        }
         $this->db->join("kpu_pemilihan b", 'a.id = b.id_pemilih', 'left');
         $this->db->where('a.status <>', 3);
-        return $this->db->get()->row();
+        if ($id != null) {
+            $return = $this->db->get()->row();
+        } else {
+            $return = $this->db->get()->result();
+        }
+        return  $return;
     }
 }

@@ -161,6 +161,15 @@ class CalonKetuaModel extends Render_Model
         return $res_foto;
     }
 
+    public function getAllCount()
+    {
+        // select datatable
+        $this->db->select("a.*, IF(a.status = '2', 'Tidak Aktif', IF(a.status = '1', 'Aktif', 'Tidak Diketahui')) as status_str,")->from('kpu_calon a');
+        $this->db->where("a.status !=", 0);
+        $this->db->where("a.status !=", 3);
+        return $this->db->get()->result();
+    }
+
 
 
 
