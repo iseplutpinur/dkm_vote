@@ -34,8 +34,9 @@ class CountModel extends Render_Model
         if ($cari != null) {
             $this->db->where("(
                 a.nama LIKE '%$cari%' or
-                a.npp LIKE '%$cari%' or
-                a.keterangan LIKE '%$cari%' or
+                a.npm LIKE '%$cari%' or
+                a.visi LIKE '%$cari%' or
+                a.misi LIKE '%$cari%' or
                 IF(a.status = '0' , 'Tidak Aktif', IF(a.status = '1' , 'Aktif', 'Tidak Diketahui')) LIKE '%$cari%'
             )");
         }
