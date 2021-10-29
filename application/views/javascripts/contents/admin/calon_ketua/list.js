@@ -1,3 +1,4 @@
+const data_calon = new Map();
 $(function () {
   function dynamic_v2(datas = { partner: null }) {
     let filter = null;
@@ -37,10 +38,11 @@ $(function () {
         },
         {
           "data": "visi", render(data, type, full, meta) {
+            data_calon.set('visi_' + full.id, data);
             return `<button
               class="btn btn-success btn-sm btn-gambar"
               data-toggle="modal"
-              data-data="${data}"
+              data-data="${full.id}"
               data-target="#visi_modal"
               onclick="visi(this)"
               id="btn-visi"><i class="fas fa-eye"></i></button>`
@@ -48,10 +50,11 @@ $(function () {
         },
         {
           "data": "misi", render(data, type, full, meta) {
+            data_calon.set('misi_' + full.id, data);
             return `<button
               class="btn btn-success btn-sm btn-gambar"
               data-toggle="modal"
-              data-data="${data}"
+              data-data="${full.id}"
               data-target="#misi_modal"
               onclick="misi(this)"
               id="btn-misi"><i class="fas fa-eye"></i></button>`
@@ -137,11 +140,11 @@ const view_gambar = (datas) => {
 }
 
 const visi = (datas) => {
-  $("#body_visi_modal").html(datas.dataset.data)
+  $("#body_visi_modal").html(data_calon.get('visi_' + datas.dataset.data))
 }
 
 const misi = (datas) => {
-  $("#body_misi_modal").html(datas.dataset.data)
+  $("#body_misi_modal").html(data_calon.get('misi_' + datas.dataset.data))
 }
 
 // Click Hapus
