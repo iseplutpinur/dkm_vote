@@ -28,6 +28,35 @@
   <?php endforeach; ?>
 </div>
 
+<?php if ($finish == 1) : ?>
+  <h5>Hasil Pemungutan Suara</h5>
+  <div class="row">
+    <div class="col-lg-6">
+      <div class="card card-primary card-outline " style="border-radius: 16px;">
+        <div class="card-header">
+          <div class="d-flex justify-content-between w-100">
+            <h3 class="card-title">Perhitungan Suara Calon Ketua</h3>
+          </div>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+          <table id="dt_basic" class="table table-bordered table-striped table-hover">
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>No Urut</th>
+                <th>Nama</th>
+                <th>Jml Suara</th>
+              </tr>
+            </thead>
+          </table>
+        </div>
+        <!-- /.card-body -->
+      </div>
+    </div>
+  </div>
+<?php endif ?>
+
 <?php foreach ($calons as $calon) : ?>
   <div class="card detail" style="border-radius: 16px; display:none;" id="detail_calon_<?= $calon->id ?>">
     <div class="card-header">
@@ -78,3 +107,5 @@
     </div>
   </div>
 </div>
+
+<input type="hidden" id="finish" value="<?= $finish ?>">

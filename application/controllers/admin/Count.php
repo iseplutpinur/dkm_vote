@@ -56,9 +56,9 @@ class Count extends Render_Controller
     $this->sesion->cek_session();
     $akses = ['Super Admin'];
     $get_lv = $this->session->userdata('data')['level'];
-    if (!in_array($get_lv, $akses)) {
-      redirect('my404', 'refresh');
-    }
+    // if (!in_array($get_lv, $akses)) {
+    //   redirect('my404', 'refresh');
+    // }
     $this->id = $this->session->userdata('data')['id'];
     $this->photo_path = './files/admin/pemilih/';
     $this->load->model("admin/CountModel", 'model');

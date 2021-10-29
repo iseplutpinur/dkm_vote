@@ -26,8 +26,12 @@ class Dashboard extends Render_Controller
 			$this->title = 'List Calon Ketua';
 			$this->content = 'dashboard/pemilih';
 			$this->data['calons'] = $this->model->getCalon($this->id);
-			// var_dump($this->data['calons']);
-			// die;
+			$get = $this->db->select('nilai')->from('kpu_kunci')->where('id', 1)->get()->row_array();
+			if ($get == null) {
+				$this->db->insert('kpu_kunci', ['id' => 1, 'nilai' => 1]);
+				$get = ['nilai' => 1];
+			}
+			$this->data['finish'] = $get['nilai'];
 		}
 
 		// Send data to view

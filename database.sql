@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Oct 29, 2021 at 01:53 AM
+-- Generation Time: Oct 29, 2021 at 02:03 AM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 7.4.21
 
@@ -64,7 +64,7 @@ CREATE TABLE `kpu_kunci` (
 --
 
 INSERT INTO `kpu_kunci` (`id`, `nilai`) VALUES
-(1, 0);
+(1, 1);
 
 -- --------------------------------------------------------
 
@@ -95,7 +95,7 @@ CREATE TABLE `kpu_pemilih` (
 INSERT INTO `kpu_pemilih` (`id`, `nama`, `npp`, `token`, `keterangan`, `status`, `last_login`, `created_by`, `updated_by`, `deleted_by`, `created_at`, `updated_at`, `deleted_at`) VALUES
 (3, 'Isep Lutpi Nurs', 'UA202110s', 'CPYZMF4', '', 1, '2021-10-29 06:18:39', 1, 1, NULL, '2021-10-29 01:59:38', '2021-10-29 06:18:39', NULL),
 (4, 'Pemilih dua', 'UA2021101', 'UZ8D0WQ', 'Pemilih dua', 1, '2021-10-29 06:20:57', 1, NULL, NULL, '2021-10-29 03:01:51', '2021-10-29 06:20:57', NULL),
-(5, 'Pemilih Tiga', 'UA202110', 'BZXOL8I', 'adfasdfsdaf', 1, '2021-10-29 06:18:39', 1, NULL, NULL, '2021-10-29 03:02:00', '2021-10-29 06:18:39', NULL);
+(5, 'Pemilih Tiga', 'UA202110', 'BZXOL8I', 'adfasdfsdaf', 1, '2021-10-29 06:55:04', 1, NULL, NULL, '2021-10-29 03:02:00', '2021-10-29 06:55:04', NULL);
 
 -- --------------------------------------------------------
 
@@ -208,7 +208,8 @@ INSERT INTO `role_aplikasi` (`rola_id`, `rola_menu_id`, `rola_lev_id`, `created_
 (238, 4, 1, '2021-10-28 22:25:03'),
 (239, 2, 1, '2021-10-28 22:25:10'),
 (240, 113, 1, '2021-10-28 22:44:39'),
-(241, 114, 1, '2021-10-28 23:24:05');
+(241, 114, 1, '2021-10-28 23:24:05'),
+(242, 1, 127, '2021-10-28 23:56:31');
 
 -- --------------------------------------------------------
 
@@ -373,7 +374,7 @@ ALTER TABLE `menu`
 -- AUTO_INCREMENT for table `role_aplikasi`
 --
 ALTER TABLE `role_aplikasi`
-  MODIFY `rola_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=242;
+  MODIFY `rola_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=243;
 
 --
 -- AUTO_INCREMENT for table `role_users`

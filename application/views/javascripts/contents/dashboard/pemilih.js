@@ -50,3 +50,55 @@ $("#fmain").submit(function (ev) {
     $('#tambahModal').modal('toggle')
   })
 });
+
+function dynamic(datas = {
+  kategori: null,
+  kelas: null,
+}) {
+  let filter = null;
+  if (datas.kategori != null && datas.kelas != null) {
+    filter = {
+      kategori: datas.kategori,
+      kelas: datas.kelas,
+    }
+  }
+  const table_html = $('#dt_basic');
+  table_html.dataTable().fnDestroy()
+  const new_table = table_html.DataTable({
+    "ajax": {
+      "url": "<?= base_url()?>admin/count/ajax_data/",
+      "data": datas,
+      "type": 'POST'
+    },
+    "processing": true,
+    "serverSide": true,
+    "responsive": true,
+    "lengthChange": true,
+    "autoWidth": false,
+    "columns": [
+      { "data": null },
+      { "data": "no_urut" },
+      { "data": "nama" },
+      { "data": "jumlah_suara" },
+    ],
+    order: [
+      [1, 'asc']
+    ],
+    columnDefs: [{
+      orderable: false,
+      targets: [0]
+    }],
+  });
+  new_table.on('draw.dt', function () {
+    var PageInfo = table_html.DataTable().page.info();
+    new_table.column(0, {
+      page: 'current'
+    }).nodes().each(function (cell, i) {
+      cell.innerHTML = i + 1 + PageInfo.start;
+    });
+  });
+}
+
+if ($("#finish").val() == 1) {
+  dynamic();
+}
