@@ -8,7 +8,7 @@ class CountModel extends Render_Model
         $level = $this->config->item('level_mentor');
         // select tabel
         $this->db->select("a.*,
-        (select count(*) from kpu_pemilihan as z where z.id_calon = a.id) as jumlah_suara");
+        (select count(*) from kpu_pemilihan as z join kpu_pemilih as y on z.id_pemilih = y.id where (z.id_calon = a.id) and y.status = 1) as jumlah_suara");
         $this->db->from("kpu_calon a");
         $this->db->where('a.status <>', 3);
         $this->db->where('a.status <>', 0);

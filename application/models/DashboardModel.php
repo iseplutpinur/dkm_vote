@@ -280,6 +280,18 @@ class DashboardModel extends Render_Model
         ]);
     }
 
+
+
+
+
+
+
+
+
+
+
+
+
     public function jumlahCalonKetua(): int
     {
         $get = $this->db->select('count(*) as total')->from('kpu_calon')->where('status', 1)->get()->row_array();
@@ -294,7 +306,7 @@ class DashboardModel extends Render_Model
 
     public function jumlahsudahPilih(): int
     {
-        $get = $this->db->select('count(*) as total')->from('kpu_pemilihan')->where('status', 1)->get()->row_array();
+        $get = $this->db->select('count(*) as total')->from('kpu_pemilihan a')->join('kpu_pemilih b', 'a.id_pemilih = b.id')->where('b.status', 1)->get()->row_array();
         return $get['total'] == null ? 0 : $get['total'];
     }
 }

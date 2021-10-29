@@ -11,10 +11,10 @@
                 <table id="dt_basic" class="table table-bordered table-striped table-hover">
                     <thead>
                         <tr>
-                            <th>No</th>
-                            <th>No Urut</th>
+                            <!-- <th>No</th> -->
+                            <th style="max-width: 75px;">No Urut</th>
                             <th>Nama</th>
-                            <th>Jml Suara</th>
+                            <th style="max-width: 100px;">Jumlah Suara</th>
                         </tr>
                     </thead>
                 </table>
