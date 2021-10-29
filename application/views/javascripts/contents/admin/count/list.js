@@ -31,7 +31,7 @@ $(function () {
             ],
             order: [
                 [0, 'asc']
-            ],
+            ]
             // columnDefs: [{
             //     orderable: false,
             //     targets: [0]
@@ -48,87 +48,78 @@ $(function () {
     }
     dynamic();
 
-    $("#btn-tambah").click(() => {
-        $("#tambahModalTitle").text("Tambah Pemilih");
-        $('#id').val('');
-        $('#nama').val('');
-        $('#npp').val('');
-        $('#keterangan').val('');
-        $('#status').val('1');
-    });
+    // get data untuk chart
 
-    // tambah dan ubah
-    $("#fmain").submit(function (ev) {
-        ev.preventDefault();
-        const form = new FormData(this);
-        $.LoadingOverlay("show");
-        $.ajax({
-            method: 'post',
-            url: '<?= base_url() ?>admin/count/' + ($("#id").val() == "" ? 'insert' : 'update'),
-            data: form,
-            cache: false,
-            contentType: false,
-            processData: false,
-        }).done((data) => {
-            Toast.fire({
-                icon: 'success',
-                title: 'Data berhasil disimpan'
-            })
-            dynamic();
-        }).fail(($xhr) => {
-            Toast.fire({
-                icon: 'error',
-                title: 'Data gagal disimpan'
-            })
-        }).always(() => {
-            $.LoadingOverlay("hide");
-            $('#tambahModal').modal('toggle')
-        })
-    });
-
-    // hapus
-    $('#OkCheck').click(() => {
-        let id = $("#idCheck").val()
-        $.LoadingOverlay("show");
-        $.ajax({
-            method: 'post',
-            url: '<?= base_url() ?>admin/count/delete',
-            data: {
-                id: id
-            }
-        }).done((data) => {
-            Toast.fire({
-                icon: 'success',
-                title: 'Data berhasil dihapus'
-            })
-            dynamic();
-        }).fail(($xhr) => {
-            Toast.fire({
-                icon: 'error',
-                title: 'Data gagal dihapus'
-            })
-        }).always(() => {
-            $('#ModalCheck').modal('toggle')
-            $.LoadingOverlay("hide");
-        })
+    $.ajax({
+        method: 'post',
+        url: '<?= base_url()?>admin/count/plot',
+        data: null
+    }).done((data) => {
+        render_pie_data(data);
+        render_bar_data(data);
+    }).fail(($xhr) => {
+        console.log($xhr);
     })
+
+    function render_bar_data(data) {
+        const datas = new Array();
+        const ticks = new Array();
+
+        let counter = 1;
+        data.forEach(e => {
+            datas.push([counter, e.jumlah_suara]);
+            ticks.push([counter, e.nama]);
+            counter++;
+        });
+        var bar_data = {
+            data: datas,
+            bars: { show: true }
+        }
+        $.plot('#bar-chart', [bar_data], {
+            grid: {
+                borderWidth: 1,
+                borderColor: '#f3f3f3',
+                tickColor: '#f3f3f3'
+            },
+            series: {
+                bars: {
+                    show: true, barWidth: 0.5, align: 'center',
+                },
+            },
+            colors: ['#3c8dbc'],
+            xaxis: {
+                ticks: ticks
+            }
+        })
+    }
+
+    function render_pie_data(data) {
+        // pie
+        google.charts.load("current", { packages: ["corechart"] });
+        google.charts.setOnLoadCallback(drawChart);
+        let counter = 1;
+        const datas = new Array();
+        datas.push(['Calon Ketua', 'Suara']);
+        data.forEach(e => {
+            datas.push([e.nama, Number(e.jumlah_suara_persen)]);
+            counter++;
+        });
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable(datas);
+
+            var options = {
+                pieHole: 1,
+            };
+
+            var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+            chart.draw(data, options);
+        }
+    }
 })
 
-// Click Hapus
-const Hapus = (id) => {
-    $("#idCheck").val(id)
-    $("#LabelCheck").text('Form Hapus')
-    $("#ContentCheck").text('Apakah anda yakin akan menghapus data ini?')
-    $('#ModalCheck').modal('toggle')
-}
-
-// Click Ubah
-const Ubah = (datas) => {
-    const data = datas.dataset;
-    $('#id').val(data.id);
-    $('#npp').val(data.npp);
-    $('#nama').val(data.nama);
-    $('#keterangan').val(data.keterangan);
-    $('#status').val(data.status);
-    $("#tambahModalTitle").text("Ubah Pemilih");
+function labelFormatter(label, series) {
+    return '<div style="font-size:13px; text-align:center; padding:2px; color: #fff; font-weight: 600;">'
+        + label
+        + '<br>'
+        + series.percent + '%</div>'
 }

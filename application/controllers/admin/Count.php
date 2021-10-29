@@ -8,7 +8,7 @@ class Count extends Render_Controller
     // Page Settings
     $this->title = 'Data Count';
     $this->navigation = ['Perhitungan Suara'];
-    $this->plugins = ['datatables'];
+    $this->plugins = ['datatables', 'plot'];
 
     // Breadcrumb setting
     $this->breadcrumb_1 = 'Dashboard';
@@ -315,6 +315,12 @@ class Count extends Render_Controller
       'doc_name' => $doc_name,
       'orientation' => 'potrait'
     ]);
+  }
+
+  public function plot()
+  {
+    $result = $this->model->plot();
+    $this->output_json($result);
   }
 
   function __construct()

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Oct 29, 2021 at 02:33 AM
+-- Generation Time: Oct 29, 2021 at 06:42 PM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 7.4.21
 
@@ -23,7 +23,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `kpu_calon` (
   `id` int(11) NOT NULL,
-  `npm` int(11) DEFAULT NULL,
+  `npm` varchar(255) DEFAULT NULL,
   `nama` varchar(255) DEFAULT NULL,
   `photo` varchar(255) DEFAULT NULL,
   `no_urut` int(11) DEFAULT NULL,
@@ -43,10 +43,12 @@ CREATE TABLE `kpu_calon` (
 --
 
 INSERT INTO `kpu_calon` (`id`, `npm`, `nama`, `photo`, `no_urut`, `visi`, `misi`, `status`, `created_by`, `updated_by`, `deleted_by`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 2147483647, 'Isep Lutpi Nur', 'd2e63d3526bf202997ba38d7298ed6e4.jpg', 1, '<ul><li>Tes</li><li>sdfasdf</li><li>asdfasdf</li><li>fasdf</li></ul>', '<p>tes</p>', 1, 1, NULL, NULL, '2021-10-29 00:03:53', '2021-10-29 04:01:25', NULL),
-(3, 1, '1', NULL, 1, '<p>sadfasdf</p>', '<p>sdaf</p>', 3, 1, NULL, 1, '2021-10-29 00:37:10', '2021-10-29 01:16:28', '2021-10-29 01:16:28'),
-(4, 2147483647, 'Ketua Dua', '45a024fd187a1b92e2e6637090e4c931.png', 2, 'Melaksanakan kegiatan yang dapat meningkatkan hubungan positif antar guru dan siswa\r\nMenciptkan kondisi lingkungan sekolah yang kondusif dalam belajar, untuk menghasilkan siswa yang berkompetensi dan mandiri\r\nMengaktifkan kelompok belajar dari masing-masing kelas\r\nMemaksimalkan peran siswa dalam menjaga kebersihan lingkungan\r\nMemajukan kualitas ekskul di sekolah agar banyak diminati siswa dan mampu mengukir prestasi diluar sekolah\r\nMengadakan kerjasama dengan sekolah lain dari sisi akademik, olah raga dan seni\r\nMembentuk karakter siswa yang unggul dari SQ. IQ, EQ\r\nMenjalin kerja sama dengan organisasi internal sekolah lainnya untuk memicu kreatifitas siswa\r\nAktif menyerap dan berbagi informasi tentang kondisi dunia pendidikan\r\nMenjadi jembatan siswa berprestasi untuk mendapatkan beasiswa', '<ol><li>Membentuk wadah belajar kelompok terpadu bagi siswa.\r\n</li><li>Menyelenggarakan perlombaan yang mendidik.\r\n</li><li>Menyelenggarakan kegiatan masa orientasi siswa yang jauh dari kesan pembodohan.\r\n</li><li>Aktif belajar di media sosial seperti Brainly, Edmodo, dan Quipper.</li><li>\r\nIkut membantu penyelenggaran kegiatan hari besar keagamaan.</li></ol>', 1, 1, NULL, NULL, '2021-10-29 00:38:15', '2021-10-29 03:01:22', NULL),
-(5, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, '2021-10-29 02:57:53', NULL, NULL);
+(1, '0', 'Kemas Prahastantra', '31d3db68260260b8e58f3ac4c1a96406.jpeg', 1, '<div><span style=\"font-size: 1rem;\">Allah itu nomor satu&nbsp;</span><br></div><div><br></div>', '<p><span style=\"font-size: 1rem;\">Menomorkan satu Allah SWT</span><br></p>', 3, 1, NULL, 1, '2021-10-29 00:03:53', '2021-10-29 13:01:18', '2021-10-29 13:01:18'),
+(3, '1', '1', NULL, 1, '<p>sadfasdf</p>', '<p>sdaf</p>', 3, 1, NULL, 1, '2021-10-29 00:37:10', '2021-10-29 01:16:28', '2021-10-29 01:16:28'),
+(4, '19016', 'Tri Purwanto', 'daae460d185cd169c8e9ee9333de4c52.png', 1, '<div><span style=\"font-size: 1rem;\">1. menjadikan masjid ulil albab dan pengurus sebagai tempat ber-ukhuwah.</span><br></div><div>2. menjadikan sarana umat islam yang ingin ber-ukhuwah.</div>', '<div><div>1. menjadikan umat islam yang lebih agamis, cinta al-qur\'an dan bertaqwa.</div><div>2. menjadikan masjid sebagai tempat yang nyaman dan aman.</div><div>3. menjadikan organiasasi dkm ulil albab menjadi lebih profesional dalam kepengurusannya</div></div>', 1, 1, NULL, NULL, '2021-10-29 00:38:15', '2021-10-29 13:16:34', NULL),
+(5, 'TES.19011', 'Kemas Prahastantra', '975e331005124f282a9ecf21365cb6a8.png', 2, '<p>Allah itu nomor satu</p>', '<p>Menomorsatukan Allah </p>', 1, 1, NULL, NULL, '2021-10-29 02:57:53', '2021-10-29 21:55:42', NULL),
+(6, '19035', 'Muhammad Luqman Arif', 'fd1c1ac7ae3a81a9cbb519f85466d591.png', 3, '<p><span style=\"font-size: 1rem;\">Menjadikan masjid ulil albab sebagai pusat pelayanan, serta pemberdayaan masyarakat menuju masyarakat yang berakhlakul karimah, dunia dan akhirat.</span></p>', '<p><span style=\"font-size: 1rem;\">1. mengelola kemakmuran masjid ulil albab</span><br></p><p>2. mengajak seluruh jama\'ah untuk melaksanakan ibadah dimasjid khususnya laki-laki, serta meningkatkan kesadaran masyarakat untuk mengimplementasikan nilai-nilai islam dalam kehidupannya</p><p>3. menjalin komunikasi kepengurusan dengan lingkungan masyarakat sekitar.</p><p>Program :</p><p>- meningkatkan peran jamaahh maupun masyarakat sekitar untuk menjaga kebersihan, ketertiban, serta keamanan.</p>', 1, 1, NULL, NULL, '2021-10-29 12:58:19', '2021-10-29 13:16:14', NULL),
+(7, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, '2021-10-29 13:15:21', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -93,9 +95,79 @@ CREATE TABLE `kpu_pemilih` (
 --
 
 INSERT INTO `kpu_pemilih` (`id`, `nama`, `npp`, `token`, `keterangan`, `status`, `last_login`, `created_by`, `updated_by`, `deleted_by`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(3, 'Isep Lutpi Nurs', 'UA202110s', 'CPYZMF4', '', 1, '2021-10-29 06:18:39', 1, 1, NULL, '2021-10-29 01:59:38', '2021-10-29 06:18:39', NULL),
-(4, 'Pemilih dua', 'UA2021101', 'UZ8D0WQ', 'Pemilih dua', 1, '2021-10-29 06:20:57', 1, NULL, NULL, '2021-10-29 03:01:51', '2021-10-29 06:20:57', NULL),
-(5, 'Pemilih Tiga', 'UA202110', 'BZXOL8I', 'adfasdfsdaf', 1, '2021-10-29 07:33:17', 1, NULL, NULL, '2021-10-29 03:02:00', '2021-10-29 07:33:17', NULL);
+(3, 'Isep Lutpi Nurs', 'UA202110s', 'CPYZMF4', '', 3, '2021-10-29 09:52:15', 1, 1, 1, '2021-10-29 01:59:38', '2021-10-29 13:19:01', '2021-10-29 13:19:01'),
+(4, 'Pemilih dua', 'UA2021101', 'UZ8D0WQ', 'Pemilih dua', 3, '2021-10-29 06:20:57', 1, NULL, 1, '2021-10-29 03:01:51', '2021-10-29 13:19:04', '2021-10-29 13:19:04'),
+(5, 'Pemilih Tiga', 'UA202110', 'BZXOL8I', 'adfasdfsdaf', 3, '2021-10-29 13:17:38', 1, NULL, 1, '2021-10-29 03:02:00', '2021-10-29 13:19:07', '2021-10-29 13:19:07'),
+(6, 'Hanif', 'UA202110', 'MOA49C5', 'tes', 3, '2021-10-29 10:25:41', 1, NULL, 1, '2021-10-29 10:24:27', '2021-10-29 13:18:58', '2021-10-29 13:18:58'),
+(7, 'Mujib Anhar Mutaqin', 'UA-17.001', 'K0IL72P', 'Akhi jangan sampai golput ya, satu suara menentukan masa depan DKM ULIL ALBAB', 1, '2021-10-29 22:24:33', 1, NULL, NULL, '2021-10-29 13:20:28', '2021-10-29 22:24:33', NULL),
+(8, 'Adjie Abdul Azis', 'UA-18.004', 'QF0OGL9', 'Akhi jangan sampai golput ya, satu suara menentukan masa depan DKM ULIL ALBAB', 1, '2021-10-29 22:24:42', 1, NULL, NULL, '2021-10-29 13:20:54', '2021-10-29 22:24:42', NULL),
+(9, 'Ilham Taufikurrahman', 'UA-18.010', 'D9JZATM', 'Akhi jangan sampai golput ya, satu suara menentukan masa depan DKM ULIL ALBAB', 1, '2021-10-29 22:24:54', 1, NULL, NULL, '2021-10-29 13:21:13', '2021-10-29 22:24:54', NULL),
+(10, 'Muhammad Ilham Solehudin', 'UA-18.011', '8MKZSIP', 'Akhi jangan sampai golput ya, satu suara menentukan masa depan DKM ULIL ALBAB', 1, '2021-10-29 22:25:08', 1, NULL, NULL, '2021-10-29 13:21:34', '2021-10-29 22:25:08', NULL),
+(11, 'Dicki Maulana', 'UA-18.016', '8UMV5R4', 'Akhi jangan sampai golput ya, satu suara menentukan masa depan DKM ULIL ALBAB', 1, '2021-10-29 22:27:50', 1, NULL, NULL, '2021-10-29 13:22:01', '2021-10-29 22:27:50', NULL),
+(12, 'Roni Sianturi', 'UA-18.017', 'S5UAGY4', 'Akhi jangan sampai golput ya, satu suara menentukan masa depan DKM ULIL ALBAB', 1, '2021-10-29 22:28:03', 1, NULL, NULL, '2021-10-29 13:23:09', '2021-10-29 22:28:03', NULL),
+(13, 'Ida Koswara Sanusi', 'UA-18.021', 'PNQLYJ8', 'Akhi jangan sampai golput ya, satu suara menentukan masa depan DKM ULIL ALBAB', 1, '2021-10-29 22:28:17', 1, NULL, NULL, '2021-10-29 13:23:57', '2021-10-29 22:28:17', NULL),
+(14, 'Iman Nurahman', 'UA-18.025', '9A8J4UF', 'Akhi jangan sampai golput ya, satu suara menentukan masa depan DKM ULIL ALBAB', 1, '2021-10-29 22:28:30', 1, NULL, NULL, '2021-10-29 13:24:52', '2021-10-29 22:28:30', NULL),
+(15, 'Aulia Nur Muhamad', 'UA-19.003', '0TLPYQN', 'Akhi jangan sampai golput ya, satu suara menentukan masa depan DKM ULIL ALBAB', 1, NULL, 1, NULL, NULL, '2021-10-29 13:25:39', NULL, NULL),
+(16, 'Ade Lukman', 'UA-19.004', '46SQEJ1', 'Akhi jangan sampai golput ya, satu suara menentukan masa depan DKM ULIL ALBAB', 1, '2021-10-29 22:29:38', 1, NULL, NULL, '2021-10-29 13:26:09', '2021-10-29 22:29:38', NULL),
+(17, 'Suherman', 'UA-19.008', 'VZQO6X9', 'Akhi jangan sampai golput ya, satu suara menentukan masa depan DKM ULIL ALBAB', 1, '2021-10-29 22:30:25', 1, NULL, NULL, '2021-10-29 13:27:16', '2021-10-29 22:30:25', NULL),
+(18, 'abu bakar Umar', 'UA-19.009', 'PH90MVU', 'Akhi jangan sampai golput ya, satu suara menentukan masa depan DKM ULIL ALBAB', 1, '2021-10-29 22:23:33', 1, NULL, NULL, '2021-10-29 13:28:03', '2021-10-29 22:23:33', NULL),
+(19, 'Kemas Prahastantra', 'UA-19.011', '5DUJCTL', 'Akhi jangan sampai golput ya, satu suara menentukan masa depan DKM ULIL ALBAB', 1, NULL, 1, NULL, NULL, '2021-10-29 13:29:11', NULL, NULL),
+(20, 'Misbah', 'UA-19.012', 'ERTGYZO', 'Akhi jangan sampai golput ya, satu suara menentukan masa depan DKM ULIL ALBAB', 1, NULL, 1, NULL, NULL, '2021-10-29 13:29:56', NULL, NULL),
+(21, 'Yoga pratama', 'UA-19.014', 'NX10EHF', 'Akhi jangan sampai golput ya, satu suara menentukan masa depan DKM ULIL ALBAB', 1, NULL, 1, NULL, NULL, '2021-10-29 13:31:00', NULL, NULL),
+(22, 'Tri Purwanto', 'UA-19.016', '5WLQVK4', 'Akhi jangan sampai golput ya, satu suara menentukan masa depan DKM ULIL ALBAB', 1, NULL, 1, NULL, NULL, '2021-10-29 20:49:10', NULL, NULL),
+(23, 'Muhamad Taufiq Hidayatuloh ', 'UA-19.028', '6H0VKYX', 'Akhi jangan sampai golput ya, satu suara menentukan masa depan DKM ULIL ALBAB', 1, NULL, 1, NULL, NULL, '2021-10-29 20:49:35', NULL, NULL),
+(24, 'Muhammad Luqman Arif', 'UA-19.035', 'V4Y35AD', 'Akhi jangan sampai golput ya, satu suara menentukan masa depan DKM ULIL ALBAB', 1, NULL, 1, NULL, NULL, '2021-10-29 20:49:58', NULL, NULL),
+(25, 'Muhammad Nor Faizi', 'UA-19.037', 'F4978ZQ', 'Akhi jangan sampai golput ya, satu suara menentukan masa depan DKM ULIL ALBAB', 1, NULL, 1, NULL, NULL, '2021-10-29 20:50:22', NULL, NULL),
+(26, 'Ilham Hidayatulloh', 'UA-19.039', 'KCUW520', 'Akhi jangan sampai golput ya, satu suara menentukan masa depan DKM ULIL ALBAB', 1, NULL, 1, NULL, NULL, '2021-10-29 20:50:45', NULL, NULL),
+(27, 'Gian Hergiana', 'UA-20.001', 'DWI712R', 'Akhi jangan sampai golput ya, satu suara menentukan masa depan DKM ULIL ALBAB', 1, NULL, 1, NULL, NULL, '2021-10-29 20:51:06', NULL, NULL),
+(28, 'Rifki Wibowo', 'UA-20.002', 'V1L5HWR', 'Akhi jangan sampai golput ya, satu suara menentukan masa depan DKM ULIL ALBAB', 1, NULL, 1, NULL, NULL, '2021-10-29 20:51:26', NULL, NULL),
+(29, 'Alltaf Subhan Khalifah', 'UA-20.004', 'KBDZ0HA', 'Akhi jangan sampai golput ya, satu suara menentukan masa depan DKM ULIL ALBAB', 1, NULL, 1, NULL, NULL, '2021-10-29 20:51:47', NULL, NULL),
+(30, 'Cecep suanda', 'UA-20.005', 'B81TYO3', 'Akhi jangan sampai golput ya, satu suara menentukan masa depan DKM ULIL ALBAB', 1, NULL, 1, NULL, NULL, '2021-10-29 20:52:11', NULL, NULL),
+(31, 'Dwiko Edwar Wahab', 'UA-20.007', 'T7P9ZIK', 'Akhi jangan sampai golput ya, satu suara menentukan masa depan DKM ULIL ALBAB', 1, NULL, 1, NULL, NULL, '2021-10-29 20:52:44', NULL, NULL),
+(32, 'Muhamad Miftah Fauzi', 'UA-20.008', 'SWXQHZP', 'Akhi jangan sampai golput ya, satu suara menentukan masa depan DKM ULIL ALBAB', 1, NULL, 1, NULL, NULL, '2021-10-29 20:53:09', NULL, NULL),
+(33, 'Fadli Fadilah', 'UA-20.009', 'P4BECTH', 'Akhi jangan sampai golput ya, satu suara menentukan masa depan DKM ULIL ALBAB', 1, NULL, 1, NULL, NULL, '2021-10-29 20:53:29', NULL, NULL),
+(34, 'Rijal Mustofa Auliya', 'UA-20.012', 'NEJW0SL', 'Akhi jangan sampai golput ya, satu suara menentukan masa depan DKM ULIL ALBAB', 1, NULL, 1, NULL, NULL, '2021-10-29 20:53:47', NULL, NULL),
+(35, 'Isep Lutpi Nur', 'UA-20.014', '9SJ7H54', 'Akhi jangan sampai golput ya, satu suara menentukan masa depan DKM ULIL ALBAB', 1, NULL, 1, NULL, NULL, '2021-10-29 20:54:05', NULL, NULL),
+(36, 'Rizky Septian', 'UA-20.015', 'OI3ERAG', 'Akhi jangan sampai golput ya, satu suara menentukan masa depan DKM ULIL ALBAB', 1, NULL, 1, NULL, NULL, '2021-10-29 20:54:33', NULL, NULL),
+(37, 'Akmal dinul islam', 'UA-20.017', '27CJ43N', 'Akhi jangan sampai golput ya, satu suara menentukan masa depan DKM ULIL ALBAB', 1, NULL, 1, NULL, NULL, '2021-10-29 20:55:43', NULL, NULL),
+(38, 'Gilang Aji', 'UA-20.018', '1UHPOC9', 'Akhi jangan sampai golput ya, satu suara menentukan masa depan DKM ULIL ALBAB', 1, NULL, 1, NULL, NULL, '2021-10-29 20:56:21', NULL, NULL),
+(39, 'Alhadi Achmad Nugraha', 'UA-20.019', '1Q3ALHR', 'Akhi jangan sampai golput ya, satu suara menentukan masa depan DKM ULIL ALBAB', 1, NULL, 1, NULL, NULL, '2021-10-29 20:56:58', NULL, NULL),
+(40, 'Zaki rasyid pamungkas', 'UA-20.020', 'E3PTODX', 'Akhi jangan sampai golput ya, satu suara menentukan masa depan DKM ULIL ALBAB', 1, NULL, 1, NULL, NULL, '2021-10-29 20:57:19', NULL, NULL),
+(41, 'Muhammad Fahrulrozy', 'UA-20.021', 'MRZK1I6', 'Akhi jangan sampai golput ya, satu suara menentukan masa depan DKM ULIL ALBAB', 1, NULL, 1, NULL, NULL, '2021-10-29 20:57:39', NULL, NULL),
+(42, 'Muhammad iman', 'UA-20.024', 'MWL2EZX', 'Akhi jangan sampai golput ya, satu suara menentukan masa depan DKM ULIL ALBAB', 1, NULL, 1, NULL, NULL, '2021-10-29 20:58:03', NULL, NULL),
+(43, 'Swastika Nurul Ikhsan', 'UA-18.001', 'S302UGE', 'Ukhti jangan sampai golput ya, satu suara menentukan masa depan DKM ULIL ALBAB', 1, NULL, 1, NULL, NULL, '2021-10-29 20:58:40', NULL, NULL),
+(44, 'Fanni Septemia Nurillah', 'UA-18.002', 'FC6BONA', 'Ukhti jangan sampai golput ya, satu suara menentukan masa depan DKM ULIL ALBAB', 1, NULL, 1, NULL, NULL, '2021-10-29 20:59:13', NULL, NULL),
+(45, 'Kheren Putri Nabila', 'UA-18.003', 'JM25C0E', 'Ukhti jangan sampai golput ya, satu suara menentukan masa depan DKM ULIL ALBAB', 1, NULL, 1, NULL, NULL, '2021-10-29 20:59:40', NULL, NULL),
+(46, 'Siti Fadilla A.R.A', 'UA-18.005', '3C8VYU5', 'Ukhti jangan sampai golput ya, satu suara menentukan masa depan DKM ULIL ALBAB', 1, NULL, 1, NULL, NULL, '2021-10-29 21:00:06', NULL, NULL),
+(47, 'Purnama Rachmanita', 'UA-18.006', 'H8R1B4O', 'Ukhti jangan sampai golput ya, satu suara menentukan masa depan DKM ULIL ALBAB', 1, NULL, 1, NULL, NULL, '2021-10-29 21:00:28', NULL, NULL),
+(48, 'Nadiya Kumalasari Pranajaya', 'UA-18.007', 'ONQPH07', 'Ukhti jangan sampai golput ya, satu suara menentukan masa depan DKM ULIL ALBAB', 1, NULL, 1, NULL, NULL, '2021-10-29 21:00:48', NULL, NULL),
+(49, 'Diah Alawiyah Rosmanawati', 'UA-18.008', '9VB2UC4', 'Ukhti jangan sampai golput ya, satu suara menentukan masa depan DKM ULIL ALBAB', 1, NULL, 1, NULL, NULL, '2021-10-29 21:01:09', NULL, NULL),
+(50, 'Yani Nuraeni', 'UA-18.009', 'WZAN0MV', 'Ukhti jangan sampai golput ya, satu suara menentukan masa depan DKM ULIL ALBAB', 1, NULL, 1, NULL, NULL, '2021-10-29 21:01:28', NULL, NULL),
+(51, 'Nida Siti Hamida', 'UA-18.019', 'MVD6U1H', 'Ukhti jangan sampai golput ya, satu suara menentukan masa depan DKM ULIL ALBAB', 1, NULL, 1, NULL, NULL, '2021-10-29 21:02:06', NULL, NULL),
+(52, 'Syifa Unzila', 'UA-18.020', 'ICT6ODE', 'Ukhti jangan sampai golput ya, satu suara menentukan masa depan DKM ULIL ALBAB', 1, NULL, 1, NULL, NULL, '2021-10-29 21:02:24', NULL, NULL),
+(53, 'Ratna Dwi Susanti', 'UA-18.023', 'CXNOAJR', 'Ukhti jangan sampai golput ya, satu suara menentukan masa depan DKM ULIL ALBAB', 1, NULL, 1, NULL, NULL, '2021-10-29 21:02:53', NULL, NULL),
+(54, 'Dina Astiani', 'UA-18.024', 'VTU5SAO', 'Ukhti jangan sampai golput ya, satu suara menentukan masa depan DKM ULIL ALBAB', 1, NULL, 1, NULL, NULL, '2021-10-29 21:03:15', NULL, NULL),
+(55, 'Lisa Puspita Anggraeni ', 'UA-19.001', 'FIVQ0ZR', 'Ukhti jangan sampai golput ya, satu suara menentukan masa depan DKM ULIL ALBAB', 1, NULL, 1, NULL, NULL, '2021-10-29 21:03:34', NULL, NULL),
+(56, 'Leni Indriani', 'UA-19.002', 'YBDXQR0', 'Ukhti jangan sampai golput ya, satu suara menentukan masa depan DKM ULIL ALBAB', 1, NULL, 1, NULL, NULL, '2021-10-29 21:03:52', NULL, NULL),
+(57, 'Ulfa Maesyaroh', 'UA-19.006', '3BKIZE4', 'Ukhti jangan sampai golput ya, satu suara menentukan masa depan DKM ULIL ALBAB', 1, NULL, 1, NULL, NULL, '2021-10-29 21:04:16', NULL, NULL),
+(58, 'Tieska lantika', 'UA-19.007', 'LD2MJ9G', 'Ukhti jangan sampai golput ya, satu suara menentukan masa depan DKM ULIL ALBAB', 1, NULL, 1, NULL, NULL, '2021-10-29 21:04:34', NULL, NULL),
+(59, 'Pipit Muditya Harjo ', 'UA-19.018', '15RCTQL', 'Ukhti jangan sampai golput ya, satu suara menentukan masa depan DKM ULIL ALBAB', 1, NULL, 1, NULL, NULL, '2021-10-29 21:04:55', NULL, NULL),
+(60, 'Indriana Nur Al-fallah Rosmawan ', 'UA-19.019', 'BPTDQYM', 'Ukhti jangan sampai golput ya, satu suara menentukan masa depan DKM ULIL ALBAB', 1, NULL, 1, NULL, NULL, '2021-10-29 21:05:25', NULL, NULL),
+(61, 'Getza Nurulita Sari', 'UA-19.023', 'VK0MHXG', 'Ukhti jangan sampai golput ya, satu suara menentukan masa depan DKM ULIL ALBAB', 1, NULL, 1, NULL, NULL, '2021-10-29 21:05:45', NULL, NULL),
+(62, 'Ayu Nova Amelia', 'UA-19.024', 'B5RFI30', 'Ukhti jangan sampai golput ya, satu suara menentukan masa depan DKM ULIL ALBAB', 1, NULL, 1, NULL, NULL, '2021-10-29 21:06:06', NULL, NULL),
+(63, 'Desi Puja Ramdianti', 'UA-19.030', 'DCT7M59', 'Ukhti jangan sampai golput ya, satu suara menentukan masa depan DKM ULIL ALBAB', 1, NULL, 1, NULL, NULL, '2021-10-29 21:06:27', NULL, NULL),
+(64, 'Nur hidayanti', 'UA-19.033', 'MT6KZJC', 'Ukhti jangan sampai golput ya, satu suara menentukan masa depan DKM ULIL ALBAB', 1, NULL, 1, NULL, NULL, '2021-10-29 21:06:51', NULL, NULL),
+(65, 'Serly Noviani', 'UA-19.034', 'O8SMW0D', 'Ukhti jangan sampai golput ya, satu suara menentukan masa depan DKM ULIL ALBAB', 1, NULL, 1, NULL, NULL, '2021-10-29 21:07:14', NULL, NULL),
+(66, 'Tini Patmawati', 'UA-19.036', 'K0ZY9S3', 'Ukhti jangan sampai golput ya, satu suara menentukan masa depan DKM ULIL ALBAB', 1, NULL, 1, NULL, NULL, '2021-10-29 21:07:34', NULL, NULL),
+(67, 'sri rahayu', 'UA-19.038', 'JO83YK5', 'Ukhti jangan sampai golput ya, satu suara menentukan masa depan DKM ULIL ALBAB', 1, NULL, 1, NULL, NULL, '2021-10-29 21:08:01', NULL, NULL),
+(68, 'Siti Nur Azizah', 'UA-20.006', 'RIO81X0', 'Ukhti jangan sampai golput ya, satu suara menentukan masa depan DKM ULIL ALBAB', 1, NULL, 1, NULL, NULL, '2021-10-29 21:08:22', NULL, NULL),
+(69, 'Allysa Silverina', 'UA-20.010', '52ZK86E', 'Ukhti jangan sampai golput ya, satu suara menentukan masa depan DKM ULIL ALBAB', 1, NULL, 1, NULL, NULL, '2021-10-29 21:08:43', NULL, NULL),
+(70, 'Ai Santi Nuranggraeni', 'UA-20.011', 'FROV54C', 'Ukhti jangan sampai golput ya, satu suara menentukan masa depan DKM ULIL ALBAB', 1, NULL, 1, NULL, NULL, '2021-10-29 21:09:15', NULL, NULL),
+(71, 'Novi Ristiani', 'UA-20.013', 'M1QNLUG', 'Ukhti jangan sampai golput ya, satu suara menentukan masa depan DKM ULIL ALBAB', 1, NULL, 1, NULL, NULL, '2021-10-29 21:09:59', NULL, NULL),
+(72, 'Nur \'Azizah', 'UA-20.016', 'AUV2Q8S', 'Ukhti jangan sampai golput ya, satu suara menentukan masa depan DKM ULIL ALBAB', 1, NULL, 1, NULL, NULL, '2021-10-29 21:10:23', NULL, NULL),
+(73, 'Ajeng Aprilia', 'UA-20.022', '8UX143B', 'Ukhti jangan sampai golput ya, satu suara menentukan masa depan DKM ULIL ALBAB', 1, NULL, 1, NULL, NULL, '2021-10-29 21:10:43', NULL, NULL),
+(74, 'cek', '123', 'V8T9S01', 'cek', 3, '2021-10-29 22:10:14', 1, 1, 1, '2021-10-29 21:14:10', '2021-10-29 22:16:50', '2021-10-29 22:16:50'),
+(75, 'TEsting', 'tes', 'QBJDG6O', 'tes', 3, '2021-10-29 21:59:13', 1, 1, 1, '2021-10-29 21:58:57', '2021-10-29 22:16:46', '2021-10-29 22:16:46');
 
 -- --------------------------------------------------------
 
@@ -121,7 +193,17 @@ CREATE TABLE `kpu_pemilihan` (
 --
 
 INSERT INTO `kpu_pemilihan` (`id`, `id_pemilih`, `id_calon`, `status`, `created_by`, `updated_by`, `deleted_by`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 4, 1, 1, NULL, NULL, NULL, '2021-10-29 06:44:06', NULL, NULL);
+(1, 18, 5, 1, NULL, NULL, NULL, '2021-10-29 22:23:03', NULL, NULL),
+(2, 7, 4, 1, NULL, NULL, NULL, '2021-10-29 22:24:35', NULL, NULL),
+(3, 8, 6, 1, NULL, NULL, NULL, '2021-10-29 22:24:47', NULL, NULL),
+(4, 9, 5, 1, NULL, NULL, NULL, '2021-10-29 22:24:58', NULL, NULL),
+(5, 10, 5, 1, NULL, NULL, NULL, '2021-10-29 22:25:14', NULL, NULL),
+(6, 11, 6, 1, NULL, NULL, NULL, '2021-10-29 22:27:54', NULL, NULL),
+(7, 12, 4, 1, NULL, NULL, NULL, '2021-10-29 22:28:08', NULL, NULL),
+(8, 13, 6, 1, NULL, NULL, NULL, '2021-10-29 22:28:20', NULL, NULL),
+(9, 14, 6, 1, NULL, NULL, NULL, '2021-10-29 22:28:39', NULL, NULL),
+(10, 16, 5, 1, NULL, NULL, NULL, '2021-10-29 22:28:50', NULL, NULL),
+(11, 17, 5, 1, NULL, NULL, NULL, '2021-10-29 22:30:30', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -177,7 +259,7 @@ INSERT INTO `menu` (`menu_id`, `menu_menu_id`, `menu_nama`, `menu_keterangan`, `
 (110, 0, 'Calon Ketua', 'Calon Ketua Umum\n', 1, 'fas fa-user', 'admin/CalonKetua', 'Aktif', '2021-10-28 17:04:18'),
 (111, 0, 'Pemilih', '-', 2, ' fas fa-tasks', 'admin/pemilih', 'Aktif', '2021-10-28 18:27:32'),
 (112, 0, 'Perhitungan Suara', '-', 3, 'far fa-comment', 'admin/Count', 'Aktif', '2021-10-28 19:46:03'),
-(113, 2, 'Reset', '-', 1, 'far fa-circle', 'pengaturan/reset', 'Aktif', '2021-10-28 22:41:40'),
+(113, 0, 'Reset Suara', 'Reset / Kosongkan Suara', 5, 'fas fa-undo', 'pengaturan/reset', 'Aktif', '2021-10-28 22:41:40'),
 (114, 0, 'Kunci Pemungutan Suara', '1', 4, 'fas fa-key', 'admin/kunci', 'Aktif', '2021-10-28 23:24:00');
 
 -- --------------------------------------------------------
@@ -338,7 +420,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `kpu_calon`
 --
 ALTER TABLE `kpu_calon`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `kpu_kunci`
@@ -350,13 +432,13 @@ ALTER TABLE `kpu_kunci`
 -- AUTO_INCREMENT for table `kpu_pemilih`
 --
 ALTER TABLE `kpu_pemilih`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
 
 --
 -- AUTO_INCREMENT for table `kpu_pemilihan`
 --
 ALTER TABLE `kpu_pemilihan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `level`

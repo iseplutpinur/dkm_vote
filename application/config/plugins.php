@@ -35,6 +35,14 @@ $config['validation'] = [
 	]
 ];
 
+$config['plot'] = [
+	'scripts' => [
+		'assets/plugins/flot/jquery.flot.js',
+		'assets/plugins/flot/plugins/jquery.flot.resize.js',
+		'assets/plugins/flot/plugins/jquery.flot.pie.js',
+	]
+];
+
 $config['icheck'] = [
 	'styles' => [
 		'assets/plugins/icheck-bootstrap/icheck-bootstrap.min.css'
