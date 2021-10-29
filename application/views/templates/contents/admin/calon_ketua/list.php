@@ -15,7 +15,7 @@
       <thead>
         <tr>
           <th>No</th>
-          <th>NPM</th>
+          <th>NPP</th>
           <th>Nama</th>
           <th>No Urut</th>
           <th>Foto</th>

@@ -246,7 +246,7 @@ class CalonKetua extends Render_Controller
     $headers = [
       'No',
       'No Urut',
-      'NPM',
+      'NPP',
       'Nama',
     ];
 
@@ -367,7 +367,7 @@ class CalonKetua extends Render_Controller
     $headers = [
       'No',
       'No Urut',
-      'NPM',
+      'NPP',
       'Nama',
     ];
     $thead_title = '';

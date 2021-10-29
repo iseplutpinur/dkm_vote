@@ -13,8 +13,8 @@
         <div class="col-md-6">
 
           <div class="form-group">
-            <label for="npm">Nomor Pokok Mahasiswa</label>
-            <input type="text" class="form-control" id="npm" name="npm" placeholder="Nomor Pokok Mahasiswa" required value="<?= $profile['npm'] ?>" />
+            <label for="npm">Nomor Pokok Pengurus</label>
+            <input type="text" class="form-control" id="npm" name="npm" placeholder="Nomor Pokok Pengurus" required value="<?= $profile['npm'] ?>" />
           </div>
         </div>
         <div class="col-md-6">
