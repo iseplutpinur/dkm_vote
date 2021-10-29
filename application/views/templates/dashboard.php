@@ -151,7 +151,7 @@
 			<!-- Brand Logo -->
 			<a href="<?= base_url() ?>" class="brand-link">
 				<img src="<?= base_url() ?>assets/images/logo2.png" alt="Kopigadjah" class="brand-image img-circle elevation-3" style="opacity: .8">
-				<span class="brand-text font-weight-light">KPU DKM</span>
+				<span class="brand-text font-weight-light"><?= $app_name ?></span>
 			</a>
 
 			<!-- Sidebar -->
@@ -159,7 +159,7 @@
 				<!-- Sidebar user panel (optional) -->
 				<div class="user-panel d-flex">
 					<div class="info">
-						<a href="#" class="d-block"><?= $this->session->userdata('data')['nama'] ?></a>
+						<a href="#" class="d-block text-capitalize"><?= $this->session->userdata('data')['nama'] ?></a>
 						<small class="form-text text-muted"><?= $this->session->userdata('data')['level'] ?></small>
 					</div>
 				</div>

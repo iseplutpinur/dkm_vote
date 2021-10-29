@@ -102,7 +102,7 @@ class Pemilih extends Render_Controller
         <body style="font-family:Arial">
         <div class="header">
             <center>
-                <h3><span style="text-align:center; ">Undangan Pemilihan Ketua Operasional DKM Ulil Albab</span></h3>
+                <h3><span style="text-align:center; ">Undangan Pemilihan Ketua Operasional<br>DKM Ulil Albab</span></h3>
                 <p style="font-size:11px; margin-top:-10px;">AYO MEMILIH PILIH SESUAI DENGAN HATI NURANI ANDA</p></center>
             </center>
             <hr>
