@@ -9,7 +9,7 @@ class Reset extends Render_Controller
     $this->title           = 'Reset';
     $this->title_show           = false;
     $this->content           = 'pengaturan/reset';
-    $this->navigation         = ['Pengaturan', 'Reset'];
+    $this->navigation         = ['Reset Suara'];
 
     // Breadcrumb setting
     $this->breadcrumb_1       = 'Dashboard';
