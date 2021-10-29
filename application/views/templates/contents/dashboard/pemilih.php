@@ -28,7 +28,7 @@
   <?php endforeach; ?>
 </div>
 
-<?php if ($finish == 1) : ?>
+<?php if (false) : ?>
   <h5>Hasil Pemungutan Suara</h5>
   <div class="row">
     <div class="col-lg-6">
@@ -74,7 +74,7 @@
       <h5>Nama</h5>
       <p><?= $calon->nama ?></p>
       <hr>
-      <h5>NPM</h5>
+      <h5>Nomor Pokok Pengurus</h5>
       <p><?= $calon->npm ?></p>
       <hr>
       <h5>Visi</h5>
@@ -112,4 +112,4 @@
   </div>
 </div>
 
-<input type="hidden" id="finish" value="<?= $finish ?>">
+<input type="hidden" id="finish" value="0">

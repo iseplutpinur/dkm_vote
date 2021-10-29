@@ -14,7 +14,20 @@
         <h3 class="card-title">Kunci Pemungutan Suara</h3>
       </div>
       <div class="card-footer">
-        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#resetModal"><?= $kunci == '1' ? 'Buka Kunci' : 'Kunci' ?></button>
+        <div class="d-flex justify-content-between align-items-center">
+          <div class="mr-3">
+            <button type="button" class="btn btn-<?= $kunci == '1' ? 'primary' : 'danger' ?>" data-toggle="modal" data-target="#resetModal"><?= $kunci == '1' ? 'Buka Kunci' : 'Kunci' ?></button>
+          </div>
+          <div>
+            <span>
+              <?php if ($kunci == '1') : ?>
+                <span class="text-bold text-danger">Pemungutan Suara Ditutp, Pemilih tidak bisa memberikan suaranya.</span>
+              <?php elseif ($kunci == '0') : ?>
+                <span class="text-bold text-success">Pemungutan Suara Dibuka, Pemilih bisa memberikan suaranya.</span>
+              <?php endif; ?>
+            </span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
