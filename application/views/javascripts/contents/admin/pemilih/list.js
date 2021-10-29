@@ -69,7 +69,7 @@ $(function () {
             ],
             columnDefs: [{
                 orderable: false,
-                targets: [0, 6]
+                targets: [0, 7]
             }],
         });
         new_table.on('draw.dt', function () {
