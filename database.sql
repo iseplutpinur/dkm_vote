@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Oct 29, 2021 at 02:03 AM
+-- Generation Time: Oct 29, 2021 at 02:33 AM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 7.4.21
 
@@ -64,7 +64,7 @@ CREATE TABLE `kpu_kunci` (
 --
 
 INSERT INTO `kpu_kunci` (`id`, `nilai`) VALUES
-(1, 1);
+(1, 0);
 
 -- --------------------------------------------------------
 
@@ -95,7 +95,7 @@ CREATE TABLE `kpu_pemilih` (
 INSERT INTO `kpu_pemilih` (`id`, `nama`, `npp`, `token`, `keterangan`, `status`, `last_login`, `created_by`, `updated_by`, `deleted_by`, `created_at`, `updated_at`, `deleted_at`) VALUES
 (3, 'Isep Lutpi Nurs', 'UA202110s', 'CPYZMF4', '', 1, '2021-10-29 06:18:39', 1, 1, NULL, '2021-10-29 01:59:38', '2021-10-29 06:18:39', NULL),
 (4, 'Pemilih dua', 'UA2021101', 'UZ8D0WQ', 'Pemilih dua', 1, '2021-10-29 06:20:57', 1, NULL, NULL, '2021-10-29 03:01:51', '2021-10-29 06:20:57', NULL),
-(5, 'Pemilih Tiga', 'UA202110', 'BZXOL8I', 'adfasdfsdaf', 1, '2021-10-29 06:55:04', 1, NULL, NULL, '2021-10-29 03:02:00', '2021-10-29 06:55:04', NULL);
+(5, 'Pemilih Tiga', 'UA202110', 'BZXOL8I', 'adfasdfsdaf', 1, '2021-10-29 07:33:17', 1, NULL, NULL, '2021-10-29 03:02:00', '2021-10-29 07:33:17', NULL);
 
 -- --------------------------------------------------------
 
