@@ -35,20 +35,50 @@
   <meta name="msapplication-TileImage" content="<?= base_url() ?>assets/favicon/ms-icon-144x144.png">
 </head>
 
-<body class="bg-white">
-  <div class="container d-flex justify-content-center flex-column align-items-center" style="min-height: 100vh;">
-    <img src="<?= base_url() ?>assets/images/logo2.png" alt="" style="margin-bottom: 10px;">
-    <h1 style="font-size: 18px; font-weight: bold;">Selamat Datang!</h1>
-    <div style="max-width: 221px;">
-      <p class="text-center" style="font-size: 14px; margin-bottom: 12px;">Silahkan pilih hak suaramu sesuai dengan hati nurani</p>
+<body class="hold-transition login-page">
+  <div id="loader"></div>
+  <div class="login-box">
+    <!-- /.login-logo -->
+    <div class="card card-outline card-primary">
+      <div class="card-header text-center">
+        <!-- <img src="<?= base_url() ?>assets/images/logo.png" class="rounded mx-auto d-block" style="max-width: 100px;" alt="Logo SIKK"> -->
+        <span class="h5"><b>AYO MEMILIH!</b><br>PILIH SESUAI DENGAN HATI NURANI ANDA</span>
+      </div>
+
+      <div class="card-body pt-3">
+        <?php
+        $flash = $this->session->flashdata();
+        if (!empty($flash)) :
+          $message = !is_array($flash['message']) ? $flash['message'] : $flash['message']['message'];
+          $color = !is_array($flash['message']) ? 'danger' : ($flash['message']['status'] ? 'success' : 'danger');
+          $text_title = !is_array($flash['message']) ? 'Failed' : ($flash['message']['status'] ? 'Success' : 'Failed');
+        ?>
+          <div class="alert alert-<?= $color ?> alert-dismissible fade show" role="alert" id="alert">
+            <strong><?= $text_title ?></strong><br><?= $message ?>
+            <br>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        <?php endif ?>
+        <form action="" method="post" autocomplete="off" id="form-login">
+          <div class="form-group">
+            <input type="text" name="token" autocomplete="off" class="form-control" id="token" placeholder="Token">
+          </div>
+        </form>
+
+        <div class="social-auth-links text-center mt-2 mb-3">
+          <button type="submit" form="form-login" class="btn btn-block btn-primary">
+            <i class="fas fa-sign-in-alt"></i> Masuk
+          </button>
+        </div>
+        <!-- /.social-auth-links -->
+      </div>
+      <!-- /.card-body -->
     </div>
-    <form action="" method="post" autocomplete="off" id="form-login">
-      <input type="text" name="token" autocomplete="off" class="form-control text-center mb-3" style="padding: 14px; background: #FFFFFF;
-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); min-width: 304px; color: #BCBCBC; font-size: 18px;
-border-radius: 24px; border:0" id="token" placeholder="Silahkan masukan token">
-    </form>
-    <button type="submit" form="form-login" class="btn text-white" style="filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)); border-radius: 64px; background-color: #00769B; padding: 13px 37px 13px 37px; font-size: 18;">Login</button>
+    <!-- /.card -->
   </div>
+  <small class="form-text text-muted">&copy; 2021 Developed by <b>Adjie Abdul Azis</b></small>
   <!-- /.login-box -->
 
   <!-- jQuery -->

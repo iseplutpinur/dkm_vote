@@ -37,7 +37,7 @@ $(document).ready(function () {
             $(element).removeClass('is-invalid');
         },
         submitHandler: function (form) {
-            setBtnLoading('button[type=submit]', 'Masuk')
+            setBtnLoading('button[type=submit]', 'Login')
             $.ajax({
                 method: 'post',
                 url: '<?= base_url() ?>login/login_token',
@@ -65,7 +65,7 @@ $(document).ready(function () {
                     alert(textStatus, errorThrown);
                 },
                 complete: function () {
-                    setBtnLoading('button[type=submit]', '<i class="fas fa-sign-in-alt"></i> Masuk', false);
+                    setBtnLoading('button[type=submit]', 'Login', false);
                 }
             })
         }
