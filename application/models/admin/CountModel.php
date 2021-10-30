@@ -12,7 +12,6 @@ class CountModel extends Render_Model
         $this->db->from("kpu_calon a");
         $this->db->where('a.status <>', 3);
         $this->db->where('a.status <>', 0);
-        $this->db->order_by('jumlah_suara', 'desc');
 
         // order by
         if ($order['order'] != null) {
@@ -83,7 +82,7 @@ class CountModel extends Render_Model
         $this->db->from("kpu_calon a");
         $this->db->where('a.status <>', 3);
         $this->db->where('a.status <>', 0);
-        $this->db->order_by('jumlah_suara', 'desc');
+        $this->db->order_by('a.no_urut', 'asc');
         return $this->db->get()->result();
     }
 

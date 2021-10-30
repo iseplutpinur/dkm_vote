@@ -30,7 +30,7 @@ $(function () {
                 { "data": "jumlah_suara", className: "text-right" },
             ],
             order: [
-                [0, 'asc']
+                [2, 'desc']
             ]
             // columnDefs: [{
             //     orderable: false,
