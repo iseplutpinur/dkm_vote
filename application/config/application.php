@@ -20,7 +20,7 @@ $config['app_name']         = 'KPU DKM UA';
 |
 */
 
-$config['copyright']         = '&copy; 2021 Developed by <b>Adjie Abdul Azis</b>';
+$config['copyright']         = '&copy; 2021 Persembahan Dari <b>Divisi Media dan Informasi</b>';
 
 /*
 |--------------------------------------------------------------------------

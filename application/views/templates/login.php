@@ -90,7 +90,7 @@
     </div>
     <!-- /.card -->
   </div>
-  <small class="form-text text-muted">&copy; 2021 Developed by <b>Adjie Abdul Azis</b></small>
+  <small class="form-text text-muted">&copy; 2021 Persembahan Dari <b>Divisi Media dan Informasi</b></small>
   <!-- /.login-box -->
 
   <!-- jQuery -->
