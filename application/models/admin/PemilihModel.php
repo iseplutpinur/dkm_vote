@@ -9,6 +9,7 @@ class PemilihModel extends Render_Model
         // select tabel
         $this->db->select("a.*,
         IF(a.status = '0' , 'Tidak Aktif', IF(a.status = '1' , 'Aktif', 'Tidak Diketahui')) as status_str,
+        if(isnull(b.id), 'Belum', 'Sudah') as sudah_pilih_str,
         b.id as id_pemilihan, b.created_at as pilih_waktu");
         $this->db->from("kpu_pemilih a");
         $this->db->join("kpu_pemilihan b", 'a.id = b.id_pemilih', 'left');
@@ -36,6 +37,7 @@ class PemilihModel extends Render_Model
                 a.nama LIKE '%$cari%' or
                 a.npp LIKE '%$cari%' or
                 a.keterangan LIKE '%$cari%' or
+                if(isnull(b.id), 'Belum', 'Sudah') LIKE '%$cari%' or
                 IF(a.status = '0' , 'Tidak Aktif', IF(a.status = '1' , 'Aktif', 'Tidak Diketahui')) LIKE '%$cari%'
             )");
         }
