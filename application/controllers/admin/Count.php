@@ -53,6 +53,7 @@ class Count extends Render_Controller
   public function export_excel()
   {
     // data body
+
     $details = $this->model->getAllCount();
     $bulan_array = [
       1 => 'Januari',
@@ -208,7 +209,31 @@ class Count extends Render_Controller
 
     // $row += 3;
     // $sheet->setCellValue("Q" . $row, "(.....................................)");
+
+    $row += 2;
+    // waktu dan tangggal
+    $sheet->mergeCells($col_start . $row . ":" . $col_end . $row)
+      ->setCellValue("A$row", "Rincian Data Pemilihan:");
+
     $row++;
+    $sheet->mergeCells($col_start . $row . ":B" . $row)
+      ->setCellValue("A$row", "Total Pemilih");
+    $sheet->mergeCells("C" . $row . ":" . $col_end . $row)
+      ->setCellValue("C$row", ": {$this->pemilih} Orang");
+
+    $row++;
+    $sheet->mergeCells($col_start . $row . ":B" . $row)
+      ->setCellValue("A$row", "Sudah Pilih");
+    $sheet->mergeCells("C" . $row . ":" . $col_end . $row)
+      ->setCellValue("C$row", ": {$this->sudahPilih} Orang");
+
+    $row++;
+    $sheet->mergeCells($col_start . $row . ":B" . $row)
+      ->setCellValue("A$row", "Belum Pilih");
+    $sheet->mergeCells("C" . $row . ":" . $col_end . $row)
+      ->setCellValue("C$row", ": {$this->belumPilih} Orang");
+
+    $row += 2;
     // waktu dan tangggal
     $tanggal = date("d-m-Y H:i:s");
     $sheet->mergeCells($col_start . $row . ":" . $col_end . $row)
@@ -223,7 +248,7 @@ class Count extends Render_Controller
 
     // set width column
     $spreadsheet->getActiveSheet()->getColumnDimension('A')->setAutoSize(true);
-    $spreadsheet->getActiveSheet()->getColumnDimension('B')->setAutoSize(true);
+    $spreadsheet->getActiveSheet()->getColumnDimension('B')->setWidth(w(8));
     $spreadsheet->getActiveSheet()->getColumnDimension('C')->setAutoSize(true);
     $spreadsheet->getActiveSheet()->getColumnDimension('D')->setAutoSize(true);
 
@@ -306,6 +331,25 @@ class Count extends Render_Controller
       $thead_number
       $body_table
       </table>
+      <br>
+      <table style='padding:2px; background-color:white; width:auto; border:0'>
+      <tr>
+        <td style='padding:2px; background-color:white; width:auto; border:0' colspan=\"2\">Rincian Data Pemilihan:</td>
+      </tr>
+      <tr>
+        <td style='padding:2px; background-color:white; width:auto; border:0'>Total Pemilih</td>
+        <td style='padding:2px; background-color:white; width:auto; border:0'>: {$this->pemilih} Orang</td>
+      </tr>
+      <tr>
+        <td style='padding:2px; background-color:white; width:auto; border:0'>Sudah Pilih</td>
+        <td style='padding:2px; background-color:white; width:auto; border:0'>: {$this->sudahPilih} Orang</td>
+      </tr>
+      <tr>
+        <td style='padding:2px; background-color:white; width:auto; border:0'>Belum Pilih</td>
+        <td style='padding:2px; background-color:white; width:auto; border:0'>: {$this->belumPilih} Orang</td>
+      </tr>
+    </table>
+      <br>
       <span style='text-align:left'>Data ini diambil pada tanggal dan waktu: $tanggal</span>
       ";
 
@@ -335,6 +379,12 @@ class Count extends Render_Controller
     $this->id = $this->session->userdata('data')['id'];
     $this->photo_path = './files/admin/pemilih/';
     $this->load->model("admin/CountModel", 'model');
+    $this->load->model("DashboardModel", 'dashboard');
+    $this->pemilih = $this->dashboard->jumlahPemilih();
+    $this->sudahPilih = $this->dashboard->jumlahsudahPilih();
+    $this->belumPilih =  $this->pemilih - $this->sudahPilih;
+
+
     $this->default_template = 'templates/dashboard';
     $this->load->library('plugin');
     $this->load->helper('url');
